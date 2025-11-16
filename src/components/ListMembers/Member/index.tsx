@@ -5,10 +5,12 @@ import Box from "../../../ui_components/Box";
 import Tag from "../../../ui_components/Tag";
 
 import { useShoppingList } from "../../../context/ShoppingList/useShoppingList";
+import { useUser } from "../../../context/UserContext/useUser";
 
 import userImg from "./user.png";
 
 import styled from "styled-components";
+import { toast } from "react-toastify";
 
 const Email = styled.span`
   font-size: small;
@@ -30,9 +32,13 @@ const Member = ({
   owner?: boolean;
   memberId: string;
 }) => {
-  const { setShoppingList } = useShoppingList();
+  const { shoppingList, setShoppingList } = useShoppingList();
+  const { user } = useUser();
 
   const handleDelete = () => {
+    if (user?.id !== shoppingList?.owner.id)
+      return toast("Only owner can manage members");
+
     setShoppingList((list) => {
       if (!list) return null;
       return {

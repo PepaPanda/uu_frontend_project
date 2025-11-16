@@ -22,7 +22,6 @@ const Item = ({
   const id = nanoid();
 
   const handleWrapperClick = () => {
-    console.log("handle");
     setShoppingList((list) => {
       if (!list) return list;
 

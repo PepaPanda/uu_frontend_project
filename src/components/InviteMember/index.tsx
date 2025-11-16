@@ -10,8 +10,12 @@ import { toast } from "react-toastify";
 
 import { nanoid } from "nanoid";
 
+import { useUser } from "../../context/UserContext/useUser";
+
 const InviteMember = () => {
-  const { setShoppingList } = useShoppingList();
+  const { user } = useUser();
+
+  const { shoppingList, setShoppingList } = useShoppingList();
   const [currentEmailToAdd, setCurrentEmailToAdd] = useState<string | null>(
     null,
   );
@@ -19,6 +23,10 @@ const InviteMember = () => {
   const handleAddMemberSubmit = () => {
     //Make a fetch req. when api is available before setting new list
     if (!currentEmailToAdd) return toast("cannot do with empty email");
+
+    if (user?.id !== shoppingList?.owner.id)
+      return toast("Only owner can invite");
+
     setShoppingList((list) => {
       if (!list) return null;
 

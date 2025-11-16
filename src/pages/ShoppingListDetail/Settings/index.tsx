@@ -9,6 +9,7 @@ import styled from "styled-components";
 
 import { useMediaQuery } from "react-responsive";
 import { useShoppingList } from "../../../context/ShoppingList/useShoppingList";
+import { useUser } from "../../../context/UserContext/useUser";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
 import { toast } from "react-toastify";
@@ -20,6 +21,7 @@ const Small = styled.span`
 `;
 
 const Settings = () => {
+  const { user } = useUser();
   const isMobile = useMediaQuery({ query: "(max-width: 817px)" });
   const [confirmOpen, setConfirmOpen] = useState(false);
   const { shoppingList, setShoppingList } = useShoppingList();
@@ -39,7 +41,11 @@ const Settings = () => {
     })();
   }, [shoppingList, setShoppingList, id]);
 
-  const handleClickDelete = () => setConfirmOpen(true);
+  const handleClickDelete = () => {
+    if (user?.id !== shoppingList?.owner.id)
+      return toast("Only owner can delete list");
+    setConfirmOpen(true);
+  };
 
   const handleConfirmDelete = () => {
     setConfirmOpen(false);
@@ -53,6 +59,8 @@ const Settings = () => {
   };
 
   const handleSubmitListName = () => {
+    if (user?.id !== shoppingList?.owner.id)
+      return toast("Only owner can change list name");
     //Fetch API here
     setShoppingList((list) => {
       if (!list) return null;
@@ -66,6 +74,8 @@ const Settings = () => {
   };
 
   const handleArchiveToggle = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (user?.id !== shoppingList?.owner.id)
+      return toast("Only owner can archive list");
     setShoppingList((list) => {
       if (!list) return null;
       return {
