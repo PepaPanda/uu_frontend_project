@@ -9,6 +9,9 @@ const CustomNavLink = styled(NavLink)`
     font-weight: bold;
     color: black;
   }
+  &:hover {
+    text-shadow: 0 0 1px currentColor;
+  }
 `;
 
 export default CustomNavLink;

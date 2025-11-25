@@ -51,7 +51,7 @@ const Img = styled.img<{ $type: string }>`
 type ButtonProps = {
   children: React.ReactNode;
   imgSrc?: string;
-  styleType?: string;
+  styleType?: "light" | "dark";
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button = ({

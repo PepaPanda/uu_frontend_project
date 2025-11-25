@@ -9,8 +9,9 @@ import styled from "styled-components";
 
 import { useMediaQuery } from "react-responsive";
 import { useShoppingList } from "../../../context/ShoppingList/useShoppingList";
+import { useShoppingListMultiple } from "../../../context/ShoppingListMultiple/useShoppingListMultiple";
 import { useUser } from "../../../context/UserContext/useUser";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 
@@ -21,16 +22,21 @@ const Small = styled.span`
 `;
 
 const Settings = () => {
+  const isFirst = useRef(true);
   const { user } = useUser();
   const isMobile = useMediaQuery({ query: "(max-width: 817px)" });
   const [confirmOpen, setConfirmOpen] = useState(false);
   const { shoppingList, setShoppingList } = useShoppingList();
+  const { setShoppingListMultiple } = useShoppingListMultiple();
   const [currentListName, setCurrentListName] = useState("");
   const { id } = useParams();
   const navigate = useNavigate();
 
+  const [deleted, setDeleted] = useState(false);
+
   useEffect(() => {
     if (!id) return;
+    if (deleted) return;
 
     (async () => {
       if (shoppingList) return setCurrentListName(shoppingList.name);
@@ -39,7 +45,15 @@ const Settings = () => {
       setShoppingList(list);
       setCurrentListName(list.name);
     })();
-  }, [shoppingList, setShoppingList, id]);
+  }, [shoppingList, setShoppingList, id, deleted]);
+
+  useEffect(() => {
+    if (isFirst) {
+      isFirst.current = false;
+      return;
+    }
+    setShoppingList(() => null);
+  }, [deleted, setShoppingList]);
 
   const handleClickDelete = () => {
     if (user?.id !== shoppingList?.owner.id)
@@ -50,6 +64,11 @@ const Settings = () => {
   const handleConfirmDelete = () => {
     setConfirmOpen(false);
     //Fetch Api to delete. On success redirect to index
+    setShoppingListMultiple((list) => {
+      if (!list) return null;
+      return list.filter((sList) => sList.id !== id);
+    });
+    setDeleted(true);
     navigate("/");
   };
 

@@ -7,6 +7,7 @@ const Div = styled.div<{
   $gap: string;
   $padding: string;
   $bg: string;
+  $height: string;
 }>`
   display: flex;
   flex-direction: ${({ $direction }) => $direction};
@@ -15,6 +16,7 @@ const Div = styled.div<{
   gap: ${({ $gap }) => $gap};
   padding: 0 ${({ $padding }) => $padding};
   background: ${({ $bg }) => $bg};
+  height: ${({ $height }) => $height};
 `;
 
 const Box = ({
@@ -25,6 +27,7 @@ const Box = ({
   gap = "0",
   padding = "0",
   bg = "none",
+  height = "unset",
 }: {
   children: React.ReactNode;
   direction?: string;
@@ -33,6 +36,7 @@ const Box = ({
   gap?: string;
   padding?: string;
   bg?: string;
+  height?: string;
 }) => {
   return (
     <Div
@@ -42,6 +46,7 @@ const Box = ({
       $gap={gap}
       $padding={padding}
       $bg={bg}
+      $height={height}
     >
       {children}
     </Div>

@@ -19,13 +19,13 @@ const ShoppingListControlPanel = () => {
 
   const [newGroceryName, setNewGroceryName] = useState("");
 
-  const { setShoppingList } = useShoppingList();
+  const { shoppingList, setShoppingList } = useShoppingList();
 
   //Update state showResolved variable on btn click
   const handleToggleButtonClick = () => {
     const result = showResolvedParam === "1" ? "0" : "1";
 
-    setSearchParams({ showresolved: result });
+    setSearchParams({ showresolved: result }, { replace: true });
     localStorage.setItem("showresolved", result);
   };
 
@@ -34,17 +34,22 @@ const ShoppingListControlPanel = () => {
     const stored = localStorage.getItem("showresolved");
     if (stored == null) return;
 
-    setSearchParams((prev) => {
-      const next = new URLSearchParams(prev);
-      next.set("showresolved", stored);
-      return next;
-    });
+    setSearchParams(
+      (prev) => {
+        const next = new URLSearchParams(prev);
+        next.set("showresolved", stored);
+        return next;
+      },
+      { replace: true }
+    );
   }, [setSearchParams]);
 
   const handleAddButtonClick = () => {
     if (newGroceryName.length < 1)
       return toast("you cannot add an empty value :)");
 
+    if (shoppingList?.status === "archived")
+      return toast("This list is archived, you cannot add new items.");
     //Try to fetch when api is done here, temporary solution only for local use below
     setShoppingList((list) => {
       if (!list) return null;
@@ -68,6 +73,7 @@ const ShoppingListControlPanel = () => {
     >
       <Box gap="10px">
         <TextInput
+          placeholder="name of the item..."
           value={newGroceryName}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             setNewGroceryName(e.target.value);

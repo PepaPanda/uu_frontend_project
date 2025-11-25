@@ -14,6 +14,7 @@ export type ShoppingListMember = {
 export type ShoppingListOwner = ShoppingListMember;
 
 export type ShoppingList = {
+  id: string;
   name: string;
   items: ShoppingListItem[];
   status: "active" | "archived";
@@ -21,3 +22,13 @@ export type ShoppingList = {
   owner: ShoppingListOwner;
   showResolved?: boolean;
 };
+
+export type ShoppingListMultiple = {
+  id: string;
+  name: string;
+  status: string;
+  resolvedCount: number;
+  unresolvedCount: number;
+  owner: string;
+  archivedOn: string | null;
+}[];

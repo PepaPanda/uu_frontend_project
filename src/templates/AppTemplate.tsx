@@ -36,9 +36,6 @@ const AppTemplate = () => {
               <Header.Menu.Item link="/archived">
                 Archived Lists
               </Header.Menu.Item>
-              <Header.Menu.Item link="/shopping-list/1234">
-                TEST LIST DETAIL - HOMEWORK
-              </Header.Menu.Item>
             </Header.Menu>
             <Header.UserInfo>
               <Header.BackBtn />
