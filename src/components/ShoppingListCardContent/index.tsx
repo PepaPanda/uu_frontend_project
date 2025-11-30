@@ -4,6 +4,8 @@ import Box from "../../ui_components/Box";
 import Items from "./Items";
 import Name from "./Name";
 import Owner from "./Owner";
+import Archived from "./Archived";
+import ItemsDone from "./ItemsDone";
 
 const ShoppingListCardContent = ({
   children,
@@ -20,5 +22,7 @@ const ShoppingListCardContent = ({
 ShoppingListCardContent.Items = Items;
 ShoppingListCardContent.Name = Name;
 ShoppingListCardContent.Owner = Owner;
+ShoppingListCardContent.Archived = Archived;
+ShoppingListCardContent.ItemsDone = ItemsDone;
 
 export default ShoppingListCardContent;

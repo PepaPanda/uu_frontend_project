@@ -3,7 +3,11 @@
     "id": "de926a0b477b7aceaa8f231dd35a8641",
     "name": "Weekly groceries",
     "status": "active",
-    "owner": "Markéta Pilová",
+    "owner": {
+      "id": "member-1-1",
+      "name": "Markéta Pilová",
+      "email": "marketapilova@example.com"
+    },
     "resolvedCount": 3,
     "unresolvedCount": 4,
     "archivedOn": null
@@ -12,7 +16,11 @@
     "id": "a1f4c92e3bb64e0fa8d9c3db4f17be20",
     "name": "Hardware supplies",
     "status": "archived",
-    "owner": "Karel",
+    "owner": {
+      "id": "member-2-1",
+      "name": "Karel",
+      "email": "karel@example.com"
+    },
     "resolvedCount": 3,
     "unresolvedCount": 15,
     "archivedOn": "2024-05-03T17:11:02.000Z"
@@ -21,7 +29,11 @@
     "id": "c84b7de1129e4782b6bbfae913ac55fe",
     "name": "Birthday planning",
     "status": "active",
-    "owner": "Lidka",
+    "owner": {
+      "id": "member-3-1",
+      "name": "Lidka",
+      "email": "lidka@example.com"
+    },
     "resolvedCount": 9,
     "unresolvedCount": 1,
     "archivedOn": null
@@ -30,7 +42,11 @@
     "id": "fb692cc4571249459f0e61e6bc66cc1d",
     "name": "Garden checklist",
     "status": "active",
-    "owner": "Marek",
+    "owner": {
+      "id": "member-4-1",
+      "name": "Marek",
+      "email": "marek@example.com"
+    },
     "resolvedCount": 7,
     "unresolvedCount": 0,
     "archivedOn": null
@@ -39,7 +55,11 @@
     "id": "5be3d31fa84f4e52aef06341bc8e415b",
     "name": "Summer vacation",
     "status": "archived",
-    "owner": "Jana",
+    "owner": {
+      "id": "member-5-1",
+      "name": "Jana",
+      "email": "jana@example.com"
+    },
     "resolvedCount": 2,
     "unresolvedCount": 10,
     "archivedOn": "2023-07-09T21:33:40.000Z"
@@ -48,7 +68,11 @@
     "id": "0d1f4a7ce5d548a1a5a52a4e9c6a31d9",
     "name": "Meal prep ideas",
     "status": "active",
-    "owner": "Tomas",
+    "owner": {
+      "id": "member-6-1",
+      "name": "Tomas",
+      "email": "tomas@example.com"
+    },
     "resolvedCount": 14,
     "unresolvedCount": 5,
     "archivedOn": null
@@ -57,7 +81,11 @@
     "id": "b4817c0c314a4f7399c441ba73fba788",
     "name": "Book wishlist",
     "status": "active",
-    "owner": "Eva",
+    "owner": {
+      "id": "member-7-1",
+      "name": "Eva",
+      "email": "eva@example.com"
+    },
     "resolvedCount": 18,
     "unresolvedCount": 2,
     "archivedOn": null
@@ -66,7 +94,11 @@
     "id": "1f3ce2aa72844382b385c8c734c8b71d",
     "name": "Home repairs",
     "status": "archived",
-    "owner": "Ondra",
+    "owner": {
+      "id": "member-8-1",
+      "name": "Ondra",
+      "email": "ondra@example.com"
+    },
     "resolvedCount": 1,
     "unresolvedCount": 8,
     "archivedOn": "2025-12-01T10:44:18.000Z"
@@ -75,7 +107,11 @@
     "id": "9b7c2dfa773648f19bf9ff2c09b2c341",
     "name": "Work tasks",
     "status": "active",
-    "owner": "Martin",
+    "owner": {
+      "id": "member-9-1",
+      "name": "Martin",
+      "email": "martin@example.com"
+    },
     "resolvedCount": 23,
     "unresolvedCount": 3,
     "archivedOn": null
@@ -84,7 +120,11 @@
     "id": "e81ac7bfb7af40ecb4acb900bd4fd14e",
     "name": "New apartment setup",
     "status": "active",
-    "owner": "Simona",
+    "owner": {
+      "id": "member-10-1",
+      "name": "Simona",
+      "email": "simona@example.com"
+    },
     "resolvedCount": 11,
     "unresolvedCount": 6,
     "archivedOn": null

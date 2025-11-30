@@ -1,4 +1,4 @@
- import styled from "styled-components";
+import styled from "styled-components";
 
 const OptionEl = styled.option`
   color: #333;
@@ -7,8 +7,12 @@ const OptionEl = styled.option`
   padding: 6px 10px;
 `;
 
-const Option = ({children} : {children: React.ReactNode}) => {
-    return <OptionEl>{children}</OptionEl>
-}
+type OptionProps = {
+  children: React.ReactNode;
+} & React.OptionHTMLAttributes<HTMLOptionElement>;
+
+const Option = ({ children, ...rest }: OptionProps) => {
+  return <OptionEl {...rest}>{children}</OptionEl>;
+};
 
 export default Option;

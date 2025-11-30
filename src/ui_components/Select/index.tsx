@@ -3,7 +3,6 @@ import styled from "styled-components";
 //Subcomponents
 import Option from "./Option";
 
-
 const SelectEl = styled.select`
   appearance: none;
   background: white;
@@ -22,14 +21,17 @@ const SelectEl = styled.select`
 
   &:focus {
     border-color: #666;
-    box-shadow: 0 0 0 2px rgba(0,0,0,0.06);
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.06);
   }
 `;
 
-const Select = ({children} : {children: React.ReactNode}) => {
-    return <SelectEl>{children}</SelectEl>
-}
+type SelectProps = {
+  children: React.ReactNode;
+} & React.SelectHTMLAttributes<HTMLSelectElement>;
 
+const Select = ({ children, ...rest }: SelectProps) => {
+  return <SelectEl {...rest}>{children}</SelectEl>;
+};
 
 Select.Option = Option;
-export default Select
+export default Select;

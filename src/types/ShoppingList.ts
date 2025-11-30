@@ -29,6 +29,6 @@ export type ShoppingListMultiple = {
   status: string;
   resolvedCount: number;
   unresolvedCount: number;
-  owner: string;
+  owner: ShoppingListMember;
   archivedOn: string | null;
 }[];

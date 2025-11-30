@@ -17,12 +17,10 @@ export const ShoppingListMultipleProvider = ({
   const { shoppingList } = useShoppingList();
 
   useEffect(() => {
-    console.log(shoppingList);
     if (!shoppingList) return;
 
     const update = () => {
       setShoppingListMultiple((slm) => {
-        console.log(slm);
         if (!slm) return null;
 
         const copy = [...slm];
@@ -38,7 +36,6 @@ export const ShoppingListMultipleProvider = ({
           }
         }
 
-        console.log(index);
         if (index !== 0 && !index) return null;
 
         const changedShoppingList = {
