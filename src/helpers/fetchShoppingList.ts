@@ -6,24 +6,29 @@ import type { ShoppingList } from "../types/ShoppingList";
 export const fetchShoppingList = async (
   id: string
 ): Promise<ShoppingList | null> => {
-  //Delete after production - for build testing
-  if (!shoppingListData) return null;
-  const testData = JSON.parse(JSON.stringify(shoppingListData));
-  if (!testData) return null;
+  if (!apiUrl) {
+    if (!shoppingListData) return null;
+    const testData = JSON.parse(JSON.stringify(shoppingListData));
+    if (!testData) return null;
 
-  const shoppingList = testData.filter((list: ShoppingList) => list.id === id);
+    const shoppingList = testData.filter(
+      (list: ShoppingList) => list._id === id
+    );
 
-  if (shoppingList.length < 1) return null;
+    if (shoppingList.length < 1) return null;
 
-  return shoppingList[0];
-
-  try {
-    const response = await fetch(`${apiUrl}/shoppinglist/${id}`);
-    if (!response.ok) return null;
-    const json = await response.json();
-    return json;
-  } catch (err) {
-    console.error(err);
-    return null;
+    return shoppingList[0];
+  } else {
+    try {
+      const response = await fetch(`${apiUrl}/shoppinglist/${id}`, {
+        credentials: "include",
+      });
+      if (!response.ok) return null;
+      const json = await response.json();
+      return json;
+    } catch (err) {
+      console.error(err);
+      return null;
+    }
   }
 };

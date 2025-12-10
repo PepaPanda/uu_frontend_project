@@ -1,9 +1,18 @@
 import { createContext } from "react";
 
 export interface User {
-  id: string;
-  name: string;
+  _id: string;
+  firstName: string;
+  lastName: string;
+  invitationList: Invitation[] | [];
   email: string;
+  createdAt: string;
+}
+
+export interface Invitation {
+  listId: string;
+  invitedBy: string;
+  invitedAt: string;
 }
 
 export interface UserContextValue {
@@ -13,5 +22,5 @@ export interface UserContextValue {
 }
 
 export const UserContext = createContext<UserContextValue | undefined>(
-  undefined,
+  undefined
 );

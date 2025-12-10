@@ -28,7 +28,7 @@ export const ShoppingListMultipleProvider = ({
         let index: null | number = null;
 
         for (let i = 0; i < copy.length; i++) {
-          if (copy[i].id === shoppingList.id) {
+          if (copy[i]._id === shoppingList._id) {
             index = i;
             break;
           } else {
@@ -38,17 +38,19 @@ export const ShoppingListMultipleProvider = ({
 
         if (index !== 0 && !index) return null;
 
+        console.log(shoppingList);
+
         const changedShoppingList = {
           ...copy[index],
           name: shoppingList.name,
           status: shoppingList.status,
-          resolvedCount: shoppingList.items.filter((i) => i.resolved).length,
-          unresolvedCount: shoppingList.items.filter((i) => !i.resolved).length,
-          archivedOn: new Date().toISOString(),
+          archivedAt: shoppingList.archivedAt,
+          items: shoppingList.items,
         };
 
         copy[index] = changedShoppingList;
 
+        console.log(copy);
         return copy;
       });
     };

@@ -38,7 +38,7 @@ const ArchivedLists = () => {
     if (shoppingListMultiple) return;
 
     (async () => {
-      const list = await fetchShoppingListMultiple();
+      const list = await fetchShoppingListMultiple(user._id);
       if (!list) return toast("failed to get shopping list");
       setShoppingListMultiple(list);
     })();
@@ -57,11 +57,11 @@ const ArchivedLists = () => {
     return sorted.map((shoppingList) => {
       return (
         <UnorderedListOfCards.Card
-          key={shoppingList.id}
-          link={`/shopping-list/${shoppingList.id}`}
+          key={shoppingList._id}
+          link={`/shopping-list/${shoppingList._id}`}
           border={false}
           color="#8b8b8b"
-          highlight={user?.id === shoppingList.owner.id}
+          highlight={user?._id === shoppingList.owner._id}
         >
           <ShoppingListCardContent>
             <ShoppingListCardContent.Name>
@@ -72,14 +72,13 @@ const ArchivedLists = () => {
             </ShoppingListCardContent.Owner>
             <ShoppingListCardContent.Archived>
               Archived on{" "}
-              {shoppingList.archivedOn
-                ? convertIsoStringToYYYYMMDD(shoppingList.archivedOn)
+              {shoppingList.archivedAt
+                ? convertIsoStringToYYYYMMDD(shoppingList.archivedAt)
                 : "unavailable"}
             </ShoppingListCardContent.Archived>
             <ShoppingListCardContent.ItemsDone>
-              {shoppingList.resolvedCount} /{" "}
-              {shoppingList.resolvedCount + shoppingList.unresolvedCount} Items
-              done
+              {shoppingList.items?.filter((i) => i.resolved).length || "--"} /{" "}
+              {shoppingList.items?.length || "--"} Items done
             </ShoppingListCardContent.ItemsDone>
           </ShoppingListCardContent>
         </UnorderedListOfCards.Card>

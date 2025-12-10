@@ -4,8 +4,8 @@ import { useMediaQuery } from "react-responsive";
 
 //Helpers
 import { fetchShoppingListMultiple } from "../../../helpers/fetchShoppingListMultiple";
+import { fetchCreateShoppingList } from "../../../helpers/fetchCreateShoppingList";
 import { toast } from "react-toastify";
-import { nanoid } from "nanoid";
 import {
   filterShoppingListsByName,
   sortShoppingLists,
@@ -26,6 +26,7 @@ import { useShoppingListMultiple } from "../../../context/ShoppingListMultiple/u
 import { useShoppingList } from "../../../context/ShoppingList/useShoppingList";
 import { useUser } from "../../../context/UserContext/useUser";
 import { useNavigate } from "react-router";
+import type { ShoppingList } from "../../../types/ShoppingList";
 
 const ActiveLists = () => {
   const isMobile = useMediaQuery({ query: "(max-width:817px)" });
@@ -42,11 +43,11 @@ const ActiveLists = () => {
   const [searchString, setSearchString] = useState("");
 
   useEffect(() => {
-    if (!user) return;
+    if (!user?._id) return;
     if (shoppingListMultiple) return;
 
     (async () => {
-      const list = await fetchShoppingListMultiple();
+      const list = await fetchShoppingListMultiple(user._id);
       if (!list) return toast("failed to get shopping list");
       setShoppingListMultiple(list);
     })();
@@ -74,54 +75,47 @@ const ActiveLists = () => {
     setNewShoppingListName(e.target.value);
   };
 
-  const handleCreateNewList = () => {
+  const handleCreateNewList = async () => {
     //Fetch here +  redirect after
-    const id = nanoid();
 
     if (newShoppingListName.length < 1) return toast("Cannot add empty name");
     //All of this below will be removed after actually implementing API...
+    if (!user) return toast("An error occured, try logging out and in.");
+
+    const id = await fetchCreateShoppingList(newShoppingListName);
+
+    if (!id) return toast("An error occured while trying to create a new list");
+
+    const owner = {
+      _id: user._id,
+      name: `${user.firstName} ${user.lastName}`,
+      email: user.email,
+    };
+
+    const newList: ShoppingList = {
+      _id: id,
+      name: newShoppingListName,
+      status: "active",
+      owner,
+      archivedAt: null,
+      items: [],
+      members: [owner],
+    };
+
     setShoppingListMultiple((list) => {
-      if (!list || !user) return null;
-      return [
-        ...list,
-        {
-          id: id,
-          name: newShoppingListName,
-          status: "active",
-          owner: user,
-          resolvedCount: 0,
-          unresolvedCount: 0,
-          archivedOn: null,
-        },
-      ];
+      if (!list) return null;
+      return [...list, newList];
     });
 
     setShoppingList(() => {
-      if (!user) return null;
-      return {
-        id: id,
-        name: newShoppingListName,
-        items: [],
-        status: "active",
-        members: [
-          {
-            id: user.id || "",
-            name: user.name || "",
-            email: user.email || "",
-          },
-        ],
-        owner: {
-          id: user.id || "",
-          name: user.name || "",
-          email: user.email || "",
-        },
-      };
+      return newList;
     });
 
     navigate(`/shopping-list/${id}`);
   };
 
   const renderList = () => {
+    console.log(shoppingListMultiple);
     const filtered = filterShoppingListsByName(
       shoppingListMultiple,
       searchString
@@ -129,11 +123,13 @@ const ActiveLists = () => {
     const sorted = sortShoppingLists(filtered, sortBy);
     if (!sorted) return "";
 
-    return sorted.map((shoppingList) => (
+    const activeOnly = sorted.filter((list) => list.status === "active");
+
+    return activeOnly.map((shoppingList) => (
       <UnorderedListOfCards.Card
-        key={shoppingList.id}
-        link={`/shopping-list/${shoppingList.id}`}
-        highlight={user?.id === shoppingList.owner.id}
+        key={shoppingList._id}
+        link={`/shopping-list/${shoppingList._id}`}
+        highlight={user?._id === shoppingList.owner._id}
       >
         <ShoppingListCardContent>
           <ShoppingListCardContent.Name>
@@ -144,10 +140,10 @@ const ActiveLists = () => {
           </ShoppingListCardContent.Owner>
           <ShoppingListCardContent.Items>
             <ShoppingListCardContent.Items.Open>
-              {shoppingList.unresolvedCount}
+              {shoppingList.items?.filter((i) => !i.resolved).length || "--"}
             </ShoppingListCardContent.Items.Open>
             <ShoppingListCardContent.Items.Total>
-              {shoppingList.unresolvedCount + shoppingList.resolvedCount}
+              {shoppingList.items?.length || "--"}
             </ShoppingListCardContent.Items.Total>
           </ShoppingListCardContent.Items>
         </ShoppingListCardContent>

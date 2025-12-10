@@ -9,6 +9,9 @@ import ShoppingListDetail, {
   Settings,
 } from "./pages/ShoppingListDetail";
 import { ArchivedLists, ActiveLists } from "./pages/ShoppingListOverview";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import UserSettings from "./pages/UserSettings";
 
 //Context
 import { ShoppingListProvider } from "./context/ShoppingList/ShoppingListProvider";
@@ -25,14 +28,25 @@ const Router = () => {
         <ShoppingListMultipleProvider>
           <ToastContainer />
           <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+
             <Route element={<AppTemplate />}>
-              <Route path="/shopping-list/:id" element={<ShoppingListDetail />} />
-              <Route path="/shopping-list/:id/settings" element={<Settings />} />
+              <Route
+                path="/shopping-list/:id"
+                element={<ShoppingListDetail />}
+              />
+              <Route
+                path="/shopping-list/:id/settings"
+                element={<Settings />}
+              />
               <Route path="/shopping-list/:id/members" element={<Members />} />
-              <Route path="/" element={<ActiveLists />}/>
-              <Route path="/archived" element={<ArchivedLists/>} />
-              <Route path="*" element={<NotFound />} />
+              <Route path="/" element={<ActiveLists />} />
+              <Route path="/archived" element={<ArchivedLists />} />
+
+              <Route path="/user/settings" element={<UserSettings />} />
             </Route>
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </ShoppingListMultipleProvider>
       </ShoppingListProvider>

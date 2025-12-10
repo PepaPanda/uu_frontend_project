@@ -13,10 +13,10 @@ const ShoppingListForm = () => {
 
   const { shoppingList } = useShoppingList();
   const resolvedItemsCount = shoppingList?.items.filter(
-    (itm) => itm.resolved,
+    (itm) => itm.resolved
   ).length;
   const unresolvedItemsCount = shoppingList?.items.filter(
-    (itm) => !itm.resolved,
+    (itm) => !itm.resolved
   ).length;
 
   const getItemsToDisplay = (): ShoppingListItem[] => {
@@ -35,12 +35,12 @@ const ShoppingListForm = () => {
       <Gap />
       <ListItems>
         <ListItems.Content>
-          {getItemsToDisplay().map(({ id, name, resolved }) => {
+          {getItemsToDisplay().map(({ _id, name, resolved }) => {
             return (
               <ListItems.Content.Item
                 resolved={resolved}
-                key={id}
-                itemId={id}
+                key={_id}
+                itemId={_id}
                 disabled={shoppingList?.status === "archived"}
               >
                 {name}

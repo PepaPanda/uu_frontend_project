@@ -1,11 +1,16 @@
 import { Label } from "./styles.ts";
-import { nanoid } from "nanoid";
 import { useShoppingList } from "../../../../../context/ShoppingList/useShoppingList";
 import type { ShoppingListItem } from "../../../../../types/ShoppingList";
 
 import UnorderedListOfRows from "../../../../../ui_components/UnorderedListOfRows/index.tsx";
 
 import { DeleteButton } from "../../../../../ui_components/DeleteButton/index.tsx";
+
+import {
+  fetchDeleteListItem,
+  fetchUpdateListItem,
+} from "../../../../../helpers/fetchShoppingListItem.ts";
+import { toast } from "react-toastify";
 
 const Item = ({
   children,
@@ -18,17 +23,27 @@ const Item = ({
   itemId: string;
   disabled: boolean;
 }) => {
-  const { setShoppingList } = useShoppingList();
-  const id = nanoid();
+  const { shoppingList, setShoppingList } = useShoppingList();
 
-  const handleWrapperClick = () => {
+  const handleWrapperClick = async () => {
+    if (!shoppingList) return toast("Unexpected error");
+
+    const updated = fetchUpdateListItem(
+      shoppingList._id,
+      itemId,
+      !resolved,
+      String(children)
+    );
+
+    if (!updated)
+      return toast("Unable to update the item, please try again later");
+
     setShoppingList((list) => {
       if (!list) return list;
-
       return {
         ...list,
         items: list.items.map((itm: ShoppingListItem) => {
-          if (itm.id === itemId) {
+          if (itm._id === itemId) {
             return { ...itm, resolved: !itm.resolved };
           }
           return itm;
@@ -44,13 +59,21 @@ const Item = ({
   const handleDeleteButtonClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
+
+    if (!shoppingList) return toast("Unexpected error");
+
+    const deleted = fetchDeleteListItem(shoppingList._id, itemId);
+
+    if (!deleted)
+      return toast("Unable to delete the item, please try again later");
+
     setShoppingList((list) => {
       if (!list) return list;
 
       return {
         ...list,
         items: list.items.filter((itm: ShoppingListItem) => {
-          if (itm.id === itemId) {
+          if (itm._id === itemId) {
             return false;
           }
           return true;
@@ -65,14 +88,14 @@ const Item = ({
       clickable={!disabled}
     >
       <input
-        id={id}
+        id={itemId}
         type="checkbox"
         checked={resolved}
         readOnly
         disabled={disabled}
       />
       <Label
-        htmlFor={id}
+        htmlFor={itemId}
         onClick={!disabled ? handleLabelClick : () => {}}
         $disabled={disabled}
       >

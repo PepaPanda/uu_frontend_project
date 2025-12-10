@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { useShoppingList } from "../../../context/ShoppingList/useShoppingList";
 import { useMediaQuery } from "react-responsive";
 
-import { nanoid } from "nanoid/non-secure"; //Temporary - not needed after implementing API
+import { fetchCreateListItem } from "../../../helpers/fetchShoppingListItem";
 import { toast } from "react-toastify";
 
 import { useSearchParams } from "react-router";
@@ -44,12 +44,21 @@ const ShoppingListControlPanel = () => {
     );
   }, [setSearchParams]);
 
-  const handleAddButtonClick = () => {
+  const handleAddButtonClick = async () => {
+    if (!shoppingList)
+      return toast("An unexpected error occured, try reloading the page");
+
     if (newGroceryName.length < 1)
       return toast("you cannot add an empty value :)");
 
-    if (shoppingList?.status === "archived")
+    if (shoppingList.status === "archived")
       return toast("This list is archived, you cannot add new items.");
+
+    const id = await fetchCreateListItem(newGroceryName, shoppingList._id);
+
+    if (!id)
+      return toast("An unexpected error occured, try reloading the page");
+
     //Try to fetch when api is done here, temporary solution only for local use below
     setShoppingList((list) => {
       if (!list) return null;
@@ -57,7 +66,7 @@ const ShoppingListControlPanel = () => {
         ...list,
         items: [
           ...list.items,
-          { id: nanoid(), name: newGroceryName, resolved: false },
+          { _id: id, name: newGroceryName, resolved: false },
         ],
       };
     });

@@ -7,6 +7,14 @@ Created with Vite
 3. npm run dev
 4. Open http://localhost:5173/ in your browser
 
+## IMPORTANT INFO
 
-IMPORTANT INFO: the current homework can be found at http://localhost:5173/shopping-list/1234
-- The app thinks an owner is logged in for the given shopping list. To change the user, go to src/context/UserContext/UserProvider.tsx and change the imported test user (src/test_data/user.json)
+- The app can run both with and without proper backend connection.
+- If VITE_API_URL is specified in .env, it will fetch API. Else it will work with local testdata in test_data folder.
+- To test with backend, set VITE_API_URL for example to http://localhost:3000/api
+
+Please keep in mind that not all features such as login, invitations etc. will work in frontend only test mode.
+
+## LOGIN
+
+/login page will accept any username and password if VITE_API_URL is not specified.

@@ -8,40 +8,38 @@ import { useState } from "react";
 
 import { toast } from "react-toastify";
 
-import { nanoid } from "nanoid";
-
 import { useUser } from "../../context/UserContext/useUser";
+
+import { fetchInviteShoppingListUser } from "../../helpers/fetchInviteShoppingListUser";
 
 const InviteMember = () => {
   const { user } = useUser();
 
-  const { shoppingList, setShoppingList } = useShoppingList();
+  const { shoppingList } = useShoppingList();
   const [currentEmailToAdd, setCurrentEmailToAdd] = useState<string | null>(
-    null,
+    null
   );
 
-  const handleAddMemberSubmit = () => {
+  const handleAddMemberSubmit = async () => {
+    if (!shoppingList || !user)
+      return toast("Unexpected error - try reloading the page");
+
     //Make a fetch req. when api is available before setting new list
     if (!currentEmailToAdd) return toast("cannot do with empty email");
-
-    if (user?.id !== shoppingList?.owner.id)
+    if (user._id !== shoppingList.owner._id)
       return toast("Only owner can invite");
 
-    setShoppingList((list) => {
-      if (!list) return null;
+    const result = await fetchInviteShoppingListUser(
+      shoppingList._id,
+      currentEmailToAdd
+    );
 
-      return {
-        ...list,
-        members: [
-          ...list.members,
-          {
-            id: nanoid(),
-            email: currentEmailToAdd,
-            name: "some name from the DB",
-          },
-        ],
-      };
-    });
+    if (!result) return toast("Unexpected error");
+
+    if (!result.ok)
+      return toast(result?.details?.details || "Unexpected error");
+
+    toast("Member invited. They can now join (if they accept)");
 
     setCurrentEmailToAdd(null);
   };
@@ -67,8 +65,9 @@ const InviteMember = () => {
             placeholder="yourname@example.com"
             onChange={handleChangeAddEmail}
             type="email"
+            value={currentEmailToAdd || ""}
           />
-          <Button styleType="dark">Add member</Button>
+          <Button styleType="dark">Invite a member</Button>
         </Box>
       </Box>
     </form>

@@ -1,12 +1,12 @@
 // src/types/ShoppingList.ts
 export type ShoppingListItem = {
-  id: string;
+  _id: string;
   name: string;
   resolved: boolean;
 };
 
 export type ShoppingListMember = {
-  id: string;
+  _id: string;
   name: string;
   email: string;
 };
@@ -14,21 +14,15 @@ export type ShoppingListMember = {
 export type ShoppingListOwner = ShoppingListMember;
 
 export type ShoppingList = {
-  id: string;
+  _id: string;
   name: string;
-  items: ShoppingListItem[];
+  items: ShoppingListItem[] | [];
   status: "active" | "archived";
   members: ShoppingListMember[];
   owner: ShoppingListOwner;
+  createdAt?: string;
+  archivedAt: string | null;
   showResolved?: boolean;
 };
 
-export type ShoppingListMultiple = {
-  id: string;
-  name: string;
-  status: string;
-  resolvedCount: number;
-  unresolvedCount: number;
-  owner: ShoppingListMember;
-  archivedOn: string | null;
-}[];
+export type ShoppingListMultiple = ShoppingList[];

@@ -16,6 +16,10 @@ import { useParams, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 
 import { fetchShoppingList } from "../../../helpers/fetchShoppingList";
+import {
+  fetchDeleteShoppingListDetail,
+  fetchEditShoppingListDetail,
+} from "../../../helpers/fetchShoppingListDetail";
 
 const Small = styled.span`
   font-size: small;
@@ -56,17 +60,24 @@ const Settings = () => {
   }, [deleted, setShoppingList]);
 
   const handleClickDelete = () => {
-    if (user?.id !== shoppingList?.owner.id)
+    if (user?._id !== shoppingList?.owner._id)
       return toast("Only owner can delete list");
     setConfirmOpen(true);
   };
 
-  const handleConfirmDelete = () => {
+  const handleConfirmDelete = async () => {
+    if (!shoppingList) return toast("Unexpected error");
+
     setConfirmOpen(false);
-    //Fetch Api to delete. On success redirect to index
+    const deleted = await fetchDeleteShoppingListDetail(shoppingList._id);
+
+    if (!deleted) return toast("Could not delete - are you the owner?");
+
+    toast("List permanently deleted");
+
     setShoppingListMultiple((list) => {
       if (!list) return null;
-      return list.filter((sList) => sList.id !== id);
+      return list.filter((sl) => sl._id !== shoppingList._id);
     });
     setDeleted(true);
     navigate("/");
@@ -77,10 +88,22 @@ const Settings = () => {
     setCurrentListName(name);
   };
 
-  const handleSubmitListName = () => {
-    if (user?.id !== shoppingList?.owner.id)
+  const handleSubmitListName = async () => {
+    if (!shoppingList || !user)
+      return toast("Unexpected error, try reloading the page");
+
+    if (user._id !== shoppingList.owner._id)
       return toast("Only owner can change list name");
-    //Fetch API here
+
+    const changed = await fetchEditShoppingListDetail(
+      shoppingList._id,
+      currentListName,
+      shoppingList.status
+    );
+
+    if (!changed)
+      return toast("Could not change the settings - are you the owner?");
+
     setShoppingList((list) => {
       if (!list) return null;
       return {
@@ -92,14 +115,32 @@ const Settings = () => {
     toast("succesfully updated name");
   };
 
-  const handleArchiveToggle = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (user?.id !== shoppingList?.owner.id)
+  const handleArchiveToggle = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    if (!shoppingList || !user)
+      return toast("Unexpected error, try reloading the page");
+
+    if (user._id !== shoppingList.owner._id)
       return toast("Only owner can archive list");
+
+    const status = e.target.checked ? "archived" : "active";
+
+    const archived = await fetchEditShoppingListDetail(
+      shoppingList._id,
+      shoppingList.name,
+      status
+    );
+
+    if (!archived)
+      return toast("Could not change the settings - are you the owner?");
+
     setShoppingList((list) => {
       if (!list) return null;
       return {
         ...list,
-        status: e.target.checked ? "archived" : "active",
+        status,
+        archivedAt: Date(),
       };
     });
   };

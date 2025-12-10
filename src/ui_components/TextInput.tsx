@@ -25,11 +25,11 @@ const TextInput = ({
 
   return (
     <Input
-      type="text"
       id={nanoid()}
-      {...rest}
       $width={appliedWidth}
       placeholder={placeholder}
+      type="text"
+      {...rest}
     />
   );
 };

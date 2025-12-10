@@ -1,435 +1,435 @@
 [
   {
-    "id": "de926a0b477b7aceaa8f231dd35a8641",
+    "_id": "de926a0b477b7aceaa8f231dd35a8641",
     "name": "Weekly groceries",
     "items": [
-      { "id": "item-1", "name": "Item 1", "resolved": true },
-      { "id": "item-2", "name": "Item 2", "resolved": true },
-      { "id": "item-3", "name": "Item 3", "resolved": true },
-      { "id": "item-4", "name": "Item 4", "resolved": false },
-      { "id": "item-5", "name": "Item 5", "resolved": false },
-      { "id": "item-6", "name": "Item 6", "resolved": false },
-      { "id": "item-7", "name": "Item 7", "resolved": false }
+      { "_id": "item-1", "name": "Item 1", "resolved": true },
+      { "_id": "item-2", "name": "Item 2", "resolved": true },
+      { "_id": "item-3", "name": "Item 3", "resolved": true },
+      { "_id": "item-4", "name": "Item 4", "resolved": false },
+      { "_id": "item-5", "name": "Item 5", "resolved": false },
+      { "_id": "item-6", "name": "Item 6", "resolved": false },
+      { "_id": "item-7", "name": "Item 7", "resolved": false }
     ],
     "status": "active",
     "members": [
       {
-        "id": "member-1-1",
+        "_id": "member-1-1",
         "name": "Markéta Pilová",
         "email": "marketapilova@example.com"
       },
       {
-        "id": "member-1-2",
+        "_id": "member-1-2",
         "name": "Guest User",
         "email": "guest1@example.com"
       },
       {
-        "id": "member-1-3",
+        "_id": "member-1-3",
         "name": "Collaborator One",
         "email": "collab1@example.com"
       }
     ],
     "owner": {
-      "id": "member-1-1",
+      "_id": "member-1-1",
       "name": "Markéta Pilová",
       "email": "marketapilova@example.com"
     }
   },
   {
-    "id": "a1f4c92e3bb64e0fa8d9c3db4f17be20",
+    "_id": "a1f4c92e3bb64e0fa8d9c3db4f17be20",
     "name": "Hardware supplies",
     "items": [
-      { "id": "item-8", "name": "Item 1", "resolved": true },
-      { "id": "item-9", "name": "Item 2", "resolved": true },
-      { "id": "item-10", "name": "Item 3", "resolved": true },
-      { "id": "item-11", "name": "Item 4", "resolved": false },
-      { "id": "item-12", "name": "Item 5", "resolved": false },
-      { "id": "item-13", "name": "Item 6", "resolved": false },
-      { "id": "item-14", "name": "Item 7", "resolved": false },
-      { "id": "item-15", "name": "Item 8", "resolved": false },
-      { "id": "item-16", "name": "Item 9", "resolved": false },
-      { "id": "item-17", "name": "Item 10", "resolved": false },
-      { "id": "item-18", "name": "Item 11", "resolved": false },
-      { "id": "item-19", "name": "Item 12", "resolved": false },
-      { "id": "item-20", "name": "Item 13", "resolved": false },
-      { "id": "item-21", "name": "Item 14", "resolved": false },
-      { "id": "item-22", "name": "Item 15", "resolved": false },
-      { "id": "item-23", "name": "Item 16", "resolved": false },
-      { "id": "item-24", "name": "Item 17", "resolved": false },
-      { "id": "item-25", "name": "Item 18", "resolved": false }
+      { "_id": "item-8", "name": "Item 1", "resolved": true },
+      { "_id": "item-9", "name": "Item 2", "resolved": true },
+      { "_id": "item-10", "name": "Item 3", "resolved": true },
+      { "_id": "item-11", "name": "Item 4", "resolved": false },
+      { "_id": "item-12", "name": "Item 5", "resolved": false },
+      { "_id": "item-13", "name": "Item 6", "resolved": false },
+      { "_id": "item-14", "name": "Item 7", "resolved": false },
+      { "_id": "item-15", "name": "Item 8", "resolved": false },
+      { "_id": "item-16", "name": "Item 9", "resolved": false },
+      { "_id": "item-17", "name": "Item 10", "resolved": false },
+      { "_id": "item-18", "name": "Item 11", "resolved": false },
+      { "_id": "item-19", "name": "Item 12", "resolved": false },
+      { "_id": "item-20", "name": "Item 13", "resolved": false },
+      { "_id": "item-21", "name": "Item 14", "resolved": false },
+      { "_id": "item-22", "name": "Item 15", "resolved": false },
+      { "_id": "item-23", "name": "Item 16", "resolved": false },
+      { "_id": "item-24", "name": "Item 17", "resolved": false },
+      { "_id": "item-25", "name": "Item 18", "resolved": false }
     ],
     "status": "archived",
     "members": [
       {
-        "id": "member-2-1",
+        "_id": "member-2-1",
         "name": "Karel",
         "email": "karel@example.com"
       },
       {
-        "id": "member-2-2",
+        "_id": "member-2-2",
         "name": "Guest User",
         "email": "guest2@example.com"
       },
       {
-        "id": "member-2-3",
+        "_id": "member-2-3",
         "name": "Collaborator One",
         "email": "collab2@example.com"
       }
     ],
     "owner": {
-      "id": "member-2-1",
+      "_id": "member-2-1",
       "name": "Karel",
       "email": "karel@example.com"
     }
   },
   {
-    "id": "c84b7de1129e4782b6bbfae913ac55fe",
+    "_id": "c84b7de1129e4782b6bbfae913ac55fe",
     "name": "Birthday planning",
     "items": [
-      { "id": "item-26", "name": "Item 1", "resolved": true },
-      { "id": "item-27", "name": "Item 2", "resolved": true },
-      { "id": "item-28", "name": "Item 3", "resolved": true },
-      { "id": "item-29", "name": "Item 4", "resolved": true },
-      { "id": "item-30", "name": "Item 5", "resolved": true },
-      { "id": "item-31", "name": "Item 6", "resolved": true },
-      { "id": "item-32", "name": "Item 7", "resolved": true },
-      { "id": "item-33", "name": "Item 8", "resolved": true },
-      { "id": "item-34", "name": "Item 9", "resolved": true },
-      { "id": "item-35", "name": "Item 10", "resolved": false }
+      { "_id": "item-26", "name": "Item 1", "resolved": true },
+      { "_id": "item-27", "name": "Item 2", "resolved": true },
+      { "_id": "item-28", "name": "Item 3", "resolved": true },
+      { "_id": "item-29", "name": "Item 4", "resolved": true },
+      { "_id": "item-30", "name": "Item 5", "resolved": true },
+      { "_id": "item-31", "name": "Item 6", "resolved": true },
+      { "_id": "item-32", "name": "Item 7", "resolved": true },
+      { "_id": "item-33", "name": "Item 8", "resolved": true },
+      { "_id": "item-34", "name": "Item 9", "resolved": true },
+      { "_id": "item-35", "name": "Item 10", "resolved": false }
     ],
     "status": "active",
     "members": [
       {
-        "id": "member-3-1",
+        "_id": "member-3-1",
         "name": "Lidka",
         "email": "lidka@example.com"
       },
       {
-        "id": "member-3-2",
+        "_id": "member-3-2",
         "name": "Guest User",
         "email": "guest3@example.com"
       },
       {
-        "id": "member-3-3",
+        "_id": "member-3-3",
         "name": "Collaborator One",
         "email": "collab3@example.com"
       }
     ],
     "owner": {
-      "id": "member-3-1",
+      "_id": "member-3-1",
       "name": "Lidka",
       "email": "lidka@example.com"
     }
   },
   {
-    "id": "fb692cc4571249459f0e61e6bc66cc1d",
+    "_id": "fb692cc4571249459f0e61e6bc66cc1d",
     "name": "Garden checklist",
     "items": [
-      { "id": "item-36", "name": "Item 1", "resolved": true },
-      { "id": "item-37", "name": "Item 2", "resolved": true },
-      { "id": "item-38", "name": "Item 3", "resolved": true },
-      { "id": "item-39", "name": "Item 4", "resolved": true },
-      { "id": "item-40", "name": "Item 5", "resolved": true },
-      { "id": "item-41", "name": "Item 6", "resolved": true },
-      { "id": "item-42", "name": "Item 7", "resolved": true }
+      { "_id": "item-36", "name": "Item 1", "resolved": true },
+      { "_id": "item-37", "name": "Item 2", "resolved": true },
+      { "_id": "item-38", "name": "Item 3", "resolved": true },
+      { "_id": "item-39", "name": "Item 4", "resolved": true },
+      { "_id": "item-40", "name": "Item 5", "resolved": true },
+      { "_id": "item-41", "name": "Item 6", "resolved": true },
+      { "_id": "item-42", "name": "Item 7", "resolved": true }
     ],
     "status": "active",
     "members": [
       {
-        "id": "member-4-1",
+        "_id": "member-4-1",
         "name": "Marek",
         "email": "marek@example.com"
       },
       {
-        "id": "member-4-2",
+        "_id": "member-4-2",
         "name": "Guest User",
         "email": "guest4@example.com"
       },
       {
-        "id": "member-4-3",
+        "_id": "member-4-3",
         "name": "Collaborator One",
         "email": "collab4@example.com"
       }
     ],
     "owner": {
-      "id": "member-4-1",
+      "_id": "member-4-1",
       "name": "Marek",
       "email": "marek@example.com"
     }
   },
   {
-    "id": "5be3d31fa84f4e52aef06341bc8e415b",
+    "_id": "5be3d31fa84f4e52aef06341bc8e415b",
     "name": "Summer vacation",
     "items": [
-      { "id": "item-43", "name": "Item 1", "resolved": true },
-      { "id": "item-44", "name": "Item 2", "resolved": true },
-      { "id": "item-45", "name": "Item 3", "resolved": false },
-      { "id": "item-46", "name": "Item 4", "resolved": false },
-      { "id": "item-47", "name": "Item 5", "resolved": false },
-      { "id": "item-48", "name": "Item 6", "resolved": false },
-      { "id": "item-49", "name": "Item 7", "resolved": false },
-      { "id": "item-50", "name": "Item 8", "resolved": false },
-      { "id": "item-51", "name": "Item 9", "resolved": false },
-      { "id": "item-52", "name": "Item 10", "resolved": false },
-      { "id": "item-53", "name": "Item 11", "resolved": false },
-      { "id": "item-54", "name": "Item 12", "resolved": false }
+      { "_id": "item-43", "name": "Item 1", "resolved": true },
+      { "_id": "item-44", "name": "Item 2", "resolved": true },
+      { "_id": "item-45", "name": "Item 3", "resolved": false },
+      { "_id": "item-46", "name": "Item 4", "resolved": false },
+      { "_id": "item-47", "name": "Item 5", "resolved": false },
+      { "_id": "item-48", "name": "Item 6", "resolved": false },
+      { "_id": "item-49", "name": "Item 7", "resolved": false },
+      { "_id": "item-50", "name": "Item 8", "resolved": false },
+      { "_id": "item-51", "name": "Item 9", "resolved": false },
+      { "_id": "item-52", "name": "Item 10", "resolved": false },
+      { "_id": "item-53", "name": "Item 11", "resolved": false },
+      { "_id": "item-54", "name": "Item 12", "resolved": false }
     ],
     "status": "archived",
     "members": [
       {
-        "id": "member-5-1",
+        "_id": "member-5-1",
         "name": "Jana",
         "email": "jana@example.com"
       },
       {
-        "id": "member-5-2",
+        "_id": "member-5-2",
         "name": "Guest User",
         "email": "guest5@example.com"
       },
       {
-        "id": "member-5-3",
+        "_id": "member-5-3",
         "name": "Collaborator One",
         "email": "collab5@example.com"
       }
     ],
     "owner": {
-      "id": "member-5-1",
+      "_id": "member-5-1",
       "name": "Jana",
       "email": "jana@example.com"
     }
   },
   {
-    "id": "0d1f4a7ce5d548a1a5a52a4e9c6a31d9",
+    "_id": "0d1f4a7ce5d548a1a5a52a4e9c6a31d9",
     "name": "Meal prep ideas",
     "items": [
-      { "id": "item-55", "name": "Item 1", "resolved": true },
-      { "id": "item-56", "name": "Item 2", "resolved": true },
-      { "id": "item-57", "name": "Item 3", "resolved": true },
-      { "id": "item-58", "name": "Item 4", "resolved": true },
-      { "id": "item-59", "name": "Item 5", "resolved": true },
-      { "id": "item-60", "name": "Item 6", "resolved": true },
-      { "id": "item-61", "name": "Item 7", "resolved": true },
-      { "id": "item-62", "name": "Item 8", "resolved": true },
-      { "id": "item-63", "name": "Item 9", "resolved": true },
-      { "id": "item-64", "name": "Item 10", "resolved": true },
-      { "id": "item-65", "name": "Item 11", "resolved": true },
-      { "id": "item-66", "name": "Item 12", "resolved": true },
-      { "id": "item-67", "name": "Item 13", "resolved": true },
-      { "id": "item-68", "name": "Item 14", "resolved": true },
-      { "id": "item-69", "name": "Item 15", "resolved": false },
-      { "id": "item-70", "name": "Item 16", "resolved": false },
-      { "id": "item-71", "name": "Item 17", "resolved": false },
-      { "id": "item-72", "name": "Item 18", "resolved": false },
-      { "id": "item-73", "name": "Item 19", "resolved": false }
+      { "_id": "item-55", "name": "Item 1", "resolved": true },
+      { "_id": "item-56", "name": "Item 2", "resolved": true },
+      { "_id": "item-57", "name": "Item 3", "resolved": true },
+      { "_id": "item-58", "name": "Item 4", "resolved": true },
+      { "_id": "item-59", "name": "Item 5", "resolved": true },
+      { "_id": "item-60", "name": "Item 6", "resolved": true },
+      { "_id": "item-61", "name": "Item 7", "resolved": true },
+      { "_id": "item-62", "name": "Item 8", "resolved": true },
+      { "_id": "item-63", "name": "Item 9", "resolved": true },
+      { "_id": "item-64", "name": "Item 10", "resolved": true },
+      { "_id": "item-65", "name": "Item 11", "resolved": true },
+      { "_id": "item-66", "name": "Item 12", "resolved": true },
+      { "_id": "item-67", "name": "Item 13", "resolved": true },
+      { "_id": "item-68", "name": "Item 14", "resolved": true },
+      { "_id": "item-69", "name": "Item 15", "resolved": false },
+      { "_id": "item-70", "name": "Item 16", "resolved": false },
+      { "_id": "item-71", "name": "Item 17", "resolved": false },
+      { "_id": "item-72", "name": "Item 18", "resolved": false },
+      { "_id": "item-73", "name": "Item 19", "resolved": false }
     ],
     "status": "active",
     "members": [
       {
-        "id": "member-6-1",
+        "_id": "member-6-1",
         "name": "Tomas",
         "email": "tomas@example.com"
       },
       {
-        "id": "member-6-2",
+        "_id": "member-6-2",
         "name": "Guest User",
         "email": "guest6@example.com"
       },
       {
-        "id": "member-6-3",
+        "_id": "member-6-3",
         "name": "Collaborator One",
         "email": "collab6@example.com"
       }
     ],
     "owner": {
-      "id": "member-6-1",
+      "_id": "member-6-1",
       "name": "Tomas",
       "email": "tomas@example.com"
     }
   },
   {
-    "id": "b4817c0c314a4f7399c441ba73fba788",
+    "_id": "b4817c0c314a4f7399c441ba73fba788",
     "name": "Book wishlist",
     "items": [
-      { "id": "item-74", "name": "Item 1", "resolved": true },
-      { "id": "item-75", "name": "Item 2", "resolved": true },
-      { "id": "item-76", "name": "Item 3", "resolved": true },
-      { "id": "item-77", "name": "Item 4", "resolved": true },
-      { "id": "item-78", "name": "Item 5", "resolved": true },
-      { "id": "item-79", "name": "Item 6", "resolved": true },
-      { "id": "item-80", "name": "Item 7", "resolved": true },
-      { "id": "item-81", "name": "Item 8", "resolved": true },
-      { "id": "item-82", "name": "Item 9", "resolved": true },
-      { "id": "item-83", "name": "Item 10", "resolved": true },
-      { "id": "item-84", "name": "Item 11", "resolved": true },
-      { "id": "item-85", "name": "Item 12", "resolved": true },
-      { "id": "item-86", "name": "Item 13", "resolved": true },
-      { "id": "item-87", "name": "Item 14", "resolved": true },
-      { "id": "item-88", "name": "Item 15", "resolved": true },
-      { "id": "item-89", "name": "Item 16", "resolved": true },
-      { "id": "item-90", "name": "Item 17", "resolved": true },
-      { "id": "item-91", "name": "Item 18", "resolved": true },
-      { "id": "item-92", "name": "Item 19", "resolved": false },
-      { "id": "item-93", "name": "Item 20", "resolved": false }
+      { "_id": "item-74", "name": "Item 1", "resolved": true },
+      { "_id": "item-75", "name": "Item 2", "resolved": true },
+      { "_id": "item-76", "name": "Item 3", "resolved": true },
+      { "_id": "item-77", "name": "Item 4", "resolved": true },
+      { "_id": "item-78", "name": "Item 5", "resolved": true },
+      { "_id": "item-79", "name": "Item 6", "resolved": true },
+      { "_id": "item-80", "name": "Item 7", "resolved": true },
+      { "_id": "item-81", "name": "Item 8", "resolved": true },
+      { "_id": "item-82", "name": "Item 9", "resolved": true },
+      { "_id": "item-83", "name": "Item 10", "resolved": true },
+      { "_id": "item-84", "name": "Item 11", "resolved": true },
+      { "_id": "item-85", "name": "Item 12", "resolved": true },
+      { "_id": "item-86", "name": "Item 13", "resolved": true },
+      { "_id": "item-87", "name": "Item 14", "resolved": true },
+      { "_id": "item-88", "name": "Item 15", "resolved": true },
+      { "_id": "item-89", "name": "Item 16", "resolved": true },
+      { "_id": "item-90", "name": "Item 17", "resolved": true },
+      { "_id": "item-91", "name": "Item 18", "resolved": true },
+      { "_id": "item-92", "name": "Item 19", "resolved": false },
+      { "_id": "item-93", "name": "Item 20", "resolved": false }
     ],
     "status": "active",
     "members": [
       {
-        "id": "member-7-1",
+        "_id": "member-7-1",
         "name": "Eva",
         "email": "eva@example.com"
       },
       {
-        "id": "member-7-2",
+        "_id": "member-7-2",
         "name": "Guest User",
         "email": "guest7@example.com"
       },
       {
-        "id": "member-7-3",
+        "_id": "member-7-3",
         "name": "Collaborator One",
         "email": "collab7@example.com"
       }
     ],
     "owner": {
-      "id": "member-7-1",
+      "_id": "member-7-1",
       "name": "Eva",
       "email": "eva@example.com"
     }
   },
   {
-    "id": "1f3ce2aa72844382b385c8c734c8b71d",
+    "_id": "1f3ce2aa72844382b385c8c734c8b71d",
     "name": "Home repairs",
     "items": [
-      { "id": "item-94", "name": "Item 1", "resolved": true },
-      { "id": "item-95", "name": "Item 2", "resolved": false },
-      { "id": "item-96", "name": "Item 3", "resolved": false },
-      { "id": "item-97", "name": "Item 4", "resolved": false },
-      { "id": "item-98", "name": "Item 5", "resolved": false },
-      { "id": "item-99", "name": "Item 6", "resolved": false },
-      { "id": "item-100", "name": "Item 7", "resolved": false },
-      { "id": "item-101", "name": "Item 8", "resolved": false },
-      { "id": "item-102", "name": "Item 9", "resolved": false }
+      { "_id": "item-94", "name": "Item 1", "resolved": true },
+      { "_id": "item-95", "name": "Item 2", "resolved": false },
+      { "_id": "item-96", "name": "Item 3", "resolved": false },
+      { "_id": "item-97", "name": "Item 4", "resolved": false },
+      { "_id": "item-98", "name": "Item 5", "resolved": false },
+      { "_id": "item-99", "name": "Item 6", "resolved": false },
+      { "_id": "item-100", "name": "Item 7", "resolved": false },
+      { "_id": "item-101", "name": "Item 8", "resolved": false },
+      { "_id": "item-102", "name": "Item 9", "resolved": false }
     ],
     "status": "archived",
     "members": [
       {
-        "id": "member-8-1",
+        "_id": "member-8-1",
         "name": "Ondra",
         "email": "ondra@example.com"
       },
       {
-        "id": "member-8-2",
+        "_id": "member-8-2",
         "name": "Guest User",
         "email": "guest8@example.com"
       },
       {
-        "id": "member-8-3",
+        "_id": "member-8-3",
         "name": "Collaborator One",
         "email": "collab8@example.com"
       }
     ],
     "owner": {
-      "id": "member-8-1",
+      "_id": "member-8-1",
       "name": "Ondra",
       "email": "ondra@example.com"
     }
   },
   {
-    "id": "9b7c2dfa773648f19bf9ff2c09b2c341",
+    "_id": "9b7c2dfa773648f19bf9ff2c09b2c341",
     "name": "Work tasks",
     "items": [
-      { "id": "item-103", "name": "Item 1", "resolved": true },
-      { "id": "item-104", "name": "Item 2", "resolved": true },
-      { "id": "item-105", "name": "Item 3", "resolved": true },
-      { "id": "item-106", "name": "Item 4", "resolved": true },
-      { "id": "item-107", "name": "Item 5", "resolved": true },
-      { "id": "item-108", "name": "Item 6", "resolved": true },
-      { "id": "item-109", "name": "Item 7", "resolved": true },
-      { "id": "item-110", "name": "Item 8", "resolved": true },
-      { "id": "item-111", "name": "Item 9", "resolved": true },
-      { "id": "item-112", "name": "Item 10", "resolved": true },
-      { "id": "item-113", "name": "Item 11", "resolved": true },
-      { "id": "item-114", "name": "Item 12", "resolved": true },
-      { "id": "item-115", "name": "Item 13", "resolved": true },
-      { "id": "item-116", "name": "Item 14", "resolved": true },
-      { "id": "item-117", "name": "Item 15", "resolved": true },
-      { "id": "item-118", "name": "Item 16", "resolved": true },
-      { "id": "item-119", "name": "Item 17", "resolved": true },
-      { "id": "item-120", "name": "Item 18", "resolved": true },
-      { "id": "item-121", "name": "Item 19", "resolved": true },
-      { "id": "item-122", "name": "Item 20", "resolved": true },
-      { "id": "item-123", "name": "Item 21", "resolved": true },
-      { "id": "item-124", "name": "Item 22", "resolved": true },
-      { "id": "item-125", "name": "Item 23", "resolved": true },
-      { "id": "item-126", "name": "Item 24", "resolved": false },
-      { "id": "item-127", "name": "Item 25", "resolved": false },
-      { "id": "item-128", "name": "Item 26", "resolved": false }
+      { "_id": "item-103", "name": "Item 1", "resolved": true },
+      { "_id": "item-104", "name": "Item 2", "resolved": true },
+      { "_id": "item-105", "name": "Item 3", "resolved": true },
+      { "_id": "item-106", "name": "Item 4", "resolved": true },
+      { "_id": "item-107", "name": "Item 5", "resolved": true },
+      { "_id": "item-108", "name": "Item 6", "resolved": true },
+      { "_id": "item-109", "name": "Item 7", "resolved": true },
+      { "_id": "item-110", "name": "Item 8", "resolved": true },
+      { "_id": "item-111", "name": "Item 9", "resolved": true },
+      { "_id": "item-112", "name": "Item 10", "resolved": true },
+      { "_id": "item-113", "name": "Item 11", "resolved": true },
+      { "_id": "item-114", "name": "Item 12", "resolved": true },
+      { "_id": "item-115", "name": "Item 13", "resolved": true },
+      { "_id": "item-116", "name": "Item 14", "resolved": true },
+      { "_id": "item-117", "name": "Item 15", "resolved": true },
+      { "_id": "item-118", "name": "Item 16", "resolved": true },
+      { "_id": "item-119", "name": "Item 17", "resolved": true },
+      { "_id": "item-120", "name": "Item 18", "resolved": true },
+      { "_id": "item-121", "name": "Item 19", "resolved": true },
+      { "_id": "item-122", "name": "Item 20", "resolved": true },
+      { "_id": "item-123", "name": "Item 21", "resolved": true },
+      { "_id": "item-124", "name": "Item 22", "resolved": true },
+      { "_id": "item-125", "name": "Item 23", "resolved": true },
+      { "_id": "item-126", "name": "Item 24", "resolved": false },
+      { "_id": "item-127", "name": "Item 25", "resolved": false },
+      { "_id": "item-128", "name": "Item 26", "resolved": false }
     ],
     "status": "active",
     "members": [
       {
-        "id": "member-9-1",
+        "_id": "member-9-1",
         "name": "Martin",
         "email": "martin@example.com"
       },
       {
-        "id": "member-9-2",
+        "_id": "member-9-2",
         "name": "Guest User",
         "email": "guest9@example.com"
       },
       {
-        "id": "member-9-3",
+        "_id": "member-9-3",
         "name": "Collaborator One",
         "email": "collab9@example.com"
       }
     ],
     "owner": {
-      "id": "member-9-1",
+      "_id": "member-9-1",
       "name": "Martin",
       "email": "martin@example.com"
     }
   },
   {
-    "id": "e81ac7bfb7af40ecb4acb900bd4fd14e",
+    "_id": "e81ac7bfb7af40ecb4acb900bd4fd14e",
     "name": "New apartment setup",
     "items": [
-      { "id": "item-129", "name": "Item 1", "resolved": true },
-      { "id": "item-130", "name": "Item 2", "resolved": true },
-      { "id": "item-131", "name": "Item 3", "resolved": true },
-      { "id": "item-132", "name": "Item 4", "resolved": true },
-      { "id": "item-133", "name": "Item 5", "resolved": true },
-      { "id": "item-134", "name": "Item 6", "resolved": true },
-      { "id": "item-135", "name": "Item 7", "resolved": true },
-      { "id": "item-136", "name": "Item 8", "resolved": true },
-      { "id": "item-137", "name": "Item 9", "resolved": true },
-      { "id": "item-138", "name": "Item 10", "resolved": true },
-      { "id": "item-139", "name": "Item 11", "resolved": true },
-      { "id": "item-140", "name": "Item 12", "resolved": false },
-      { "id": "item-141", "name": "Item 13", "resolved": false },
-      { "id": "item-142", "name": "Item 14", "resolved": false },
-      { "id": "item-143", "name": "Item 15", "resolved": false },
-      { "id": "item-144", "name": "Item 16", "resolved": false },
-      { "id": "item-145", "name": "Item 17", "resolved": false }
+      { "_id": "item-129", "name": "Item 1", "resolved": true },
+      { "_id": "item-130", "name": "Item 2", "resolved": true },
+      { "_id": "item-131", "name": "Item 3", "resolved": true },
+      { "_id": "item-132", "name": "Item 4", "resolved": true },
+      { "_id": "item-133", "name": "Item 5", "resolved": true },
+      { "_id": "item-134", "name": "Item 6", "resolved": true },
+      { "_id": "item-135", "name": "Item 7", "resolved": true },
+      { "_id": "item-136", "name": "Item 8", "resolved": true },
+      { "_id": "item-137", "name": "Item 9", "resolved": true },
+      { "_id": "item-138", "name": "Item 10", "resolved": true },
+      { "_id": "item-139", "name": "Item 11", "resolved": true },
+      { "_id": "item-140", "name": "Item 12", "resolved": false },
+      { "_id": "item-141", "name": "Item 13", "resolved": false },
+      { "_id": "item-142", "name": "Item 14", "resolved": false },
+      { "_id": "item-143", "name": "Item 15", "resolved": false },
+      { "_id": "item-144", "name": "Item 16", "resolved": false },
+      { "_id": "item-145", "name": "Item 17", "resolved": false }
     ],
     "status": "active",
     "members": [
       {
-        "id": "member-10-1",
+        "_id": "member-10-1",
         "name": "Simona",
         "email": "simona@example.com"
       },
       {
-        "id": "member-10-2",
+        "_id": "member-10-2",
         "name": "Guest User",
         "email": "guest10@example.com"
       },
       {
-        "id": "member-10-3",
+        "_id": "member-10-3",
         "name": "Collaborator One",
         "email": "collab10@example.com"
       }
     ],
     "owner": {
-      "id": "member-10-1",
+      "_id": "member-10-1",
       "name": "Simona",
       "email": "simona@example.com"
     }

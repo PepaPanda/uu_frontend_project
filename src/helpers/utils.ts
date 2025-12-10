@@ -27,8 +27,8 @@ export const sortShoppingLists = (
     return list.sort((a, b) => a.owner.name.localeCompare(b.owner.name));
   } else if (orderType === "archived") {
     return list.sort((a, b) => {
-      const A = a.archivedOn ?? "9999-12-31T00:00:00Z";
-      const B = b.archivedOn ?? "9999-12-31T00:00:00Z";
+      const A = a.archivedAt ?? "9999-12-31T00:00:00Z";
+      const B = b.archivedAt ?? "9999-12-31T00:00:00Z";
       return A < B ? 1 : -1;
     });
   }

@@ -30,7 +30,7 @@ const ShoppingListDetail = () => {
 
   useEffect(() => {
     if (!id) return;
-    if (shoppingList?.id === id) return;
+    if (shoppingList?._id === id) return;
 
     (async () => {
       const list = await fetchShoppingList(id);

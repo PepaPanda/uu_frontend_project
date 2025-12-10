@@ -17,29 +17,29 @@ const Members = () => {
   const { shoppingList, setShoppingList } = useShoppingList();
 
   useEffect(() => {
-    if (shoppingList) return;
     if (!id) return;
-
-    (async () => {
-      const list = await fetchShoppingList(id);
-      if (!list) return toast("failed to get shopping list");
-      setShoppingList(list);
-    })();
+    if (!shoppingList) {
+      (async () => {
+        const shoppingList = await fetchShoppingList(id);
+        if (!shoppingList) return toast("Failed to get shopping list");
+        setShoppingList(shoppingList);
+      })();
+    }
   }, [shoppingList, setShoppingList, id]);
 
   const renderUserList = () => {
     if (!shoppingList) return <></>;
     const owner = shoppingList.owner;
     const members = shoppingList.members.filter(
-      (member) => member.id !== owner.id,
+      (member) => member._id !== owner._id
     );
 
     return (
       <ListMembers>
         <ListMembers.Member
           email={owner.email}
-          key={owner.id}
-          memberId={owner.id}
+          key={owner._id}
+          memberId={owner._id}
           owner={true}
         >
           {owner.name}
@@ -48,8 +48,8 @@ const Members = () => {
           return (
             <ListMembers.Member
               email={member.email}
-              key={member.id}
-              memberId={member.id}
+              key={member._id}
+              memberId={member._id}
             >
               {member.name}
             </ListMembers.Member>
@@ -63,7 +63,7 @@ const Members = () => {
     <>
       <h1>
         {shoppingList
-          ? `Manage members for ${shoppingList.name}`
+          ? `Manage members for: ${shoppingList.name}`
           : "Failed to fetch shopping list"}
       </h1>
       <Gap />

@@ -1,132 +1,362 @@
 [
   {
-    "id": "de926a0b477b7aceaa8f231dd35a8641",
+    "_id": "de926a0b477b7aceaa8f231dd35a8641",
     "name": "Weekly groceries",
     "status": "active",
+    "items": [
+      { "_id": "item-1", "name": "Item 1", "resolved": true },
+      { "_id": "item-2", "name": "Item 2", "resolved": true },
+      { "_id": "item-3", "name": "Item 3", "resolved": true },
+      { "_id": "item-4", "name": "Item 4", "resolved": false },
+      { "_id": "item-5", "name": "Item 5", "resolved": false },
+      { "_id": "item-6", "name": "Item 6", "resolved": false },
+      { "_id": "item-7", "name": "Item 7", "resolved": false }
+    ],
     "owner": {
-      "id": "member-1-1",
+      "_id": "member-1-1",
       "name": "Markéta Pilová",
       "email": "marketapilova@example.com"
     },
-    "resolvedCount": 3,
-    "unresolvedCount": 4,
-    "archivedOn": null
+    "members": [
+      {
+        "_id": "member-1-1",
+        "name": "Markéta Pilová",
+        "email": "marketapilova@example.com"
+      }
+    ],
+    "archivedAt": null
   },
   {
-    "id": "a1f4c92e3bb64e0fa8d9c3db4f17be20",
+    "_id": "a1f4c92e3bb64e0fa8d9c3db4f17be20",
     "name": "Hardware supplies",
     "status": "archived",
+    "items": [
+      { "_id": "item-8", "name": "Item 1", "resolved": true },
+      { "_id": "item-9", "name": "Item 2", "resolved": true },
+      { "_id": "item-10", "name": "Item 3", "resolved": true },
+      { "_id": "item-11", "name": "Item 4", "resolved": false },
+      { "_id": "item-12", "name": "Item 5", "resolved": false },
+      { "_id": "item-13", "name": "Item 6", "resolved": false },
+      { "_id": "item-14", "name": "Item 7", "resolved": false },
+      { "_id": "item-15", "name": "Item 8", "resolved": false },
+      { "_id": "item-16", "name": "Item 9", "resolved": false },
+      { "_id": "item-17", "name": "Item 10", "resolved": false },
+      { "_id": "item-18", "name": "Item 11", "resolved": false },
+      { "_id": "item-19", "name": "Item 12", "resolved": false },
+      { "_id": "item-20", "name": "Item 13", "resolved": false },
+      { "_id": "item-21", "name": "Item 14", "resolved": false },
+      { "_id": "item-22", "name": "Item 15", "resolved": false },
+      { "_id": "item-23", "name": "Item 16", "resolved": false },
+      { "_id": "item-24", "name": "Item 17", "resolved": false },
+      { "_id": "item-25", "name": "Item 18", "resolved": false }
+    ],
     "owner": {
-      "id": "member-2-1",
+      "_id": "member-2-1",
       "name": "Karel",
       "email": "karel@example.com"
     },
-    "resolvedCount": 3,
-    "unresolvedCount": 15,
-    "archivedOn": "2024-05-03T17:11:02.000Z"
+    "members": [
+      {
+        "_id": "member-2-1",
+        "name": "Karel",
+        "email": "karel@example.com"
+      }
+    ],
+    "archivedAt": "2024-05-03T17:11:02.000Z"
   },
   {
-    "id": "c84b7de1129e4782b6bbfae913ac55fe",
+    "_id": "c84b7de1129e4782b6bbfae913ac55fe",
     "name": "Birthday planning",
     "status": "active",
+    "items": [
+      { "_id": "item-26", "name": "Item 1", "resolved": true },
+      { "_id": "item-27", "name": "Item 2", "resolved": true },
+      { "_id": "item-28", "name": "Item 3", "resolved": true },
+      { "_id": "item-29", "name": "Item 4", "resolved": true },
+      { "_id": "item-30", "name": "Item 5", "resolved": true },
+      { "_id": "item-31", "name": "Item 6", "resolved": true },
+      { "_id": "item-32", "name": "Item 7", "resolved": true },
+      { "_id": "item-33", "name": "Item 8", "resolved": true },
+      { "_id": "item-34", "name": "Item 9", "resolved": true },
+      { "_id": "item-35", "name": "Item 10", "resolved": false }
+    ],
     "owner": {
-      "id": "member-3-1",
+      "_id": "member-3-1",
       "name": "Lidka",
       "email": "lidka@example.com"
     },
-    "resolvedCount": 9,
-    "unresolvedCount": 1,
-    "archivedOn": null
+    "members": [
+      {
+        "_id": "member-3-1",
+        "name": "Lidka",
+        "email": "lidka@example.com"
+      }
+    ],
+    "archivedAt": null
   },
   {
-    "id": "fb692cc4571249459f0e61e6bc66cc1d",
+    "_id": "fb692cc4571249459f0e61e6bc66cc1d",
     "name": "Garden checklist",
     "status": "active",
     "owner": {
-      "id": "member-4-1",
+      "_id": "member-4-1",
       "name": "Marek",
       "email": "marek@example.com"
     },
-    "resolvedCount": 7,
-    "unresolvedCount": 0,
-    "archivedOn": null
+    "items": [
+      { "_id": "item-36", "name": "Item 1", "resolved": true },
+      { "_id": "item-37", "name": "Item 2", "resolved": true },
+      { "_id": "item-38", "name": "Item 3", "resolved": true },
+      { "_id": "item-39", "name": "Item 4", "resolved": true },
+      { "_id": "item-40", "name": "Item 5", "resolved": true },
+      { "_id": "item-41", "name": "Item 6", "resolved": true },
+      { "_id": "item-42", "name": "Item 7", "resolved": true }
+    ],
+    "members": [
+      {
+        "_id": "member-4-1",
+        "name": "Marek",
+        "email": "marek@example.com"
+      }
+    ],
+    "archivedAt": null
   },
   {
-    "id": "5be3d31fa84f4e52aef06341bc8e415b",
+    "_id": "5be3d31fa84f4e52aef06341bc8e415b",
     "name": "Summer vacation",
     "status": "archived",
     "owner": {
-      "id": "member-5-1",
+      "_id": "member-5-1",
       "name": "Jana",
       "email": "jana@example.com"
     },
-    "resolvedCount": 2,
-    "unresolvedCount": 10,
-    "archivedOn": "2023-07-09T21:33:40.000Z"
+    "items": [
+      { "_id": "item-43", "name": "Item 1", "resolved": true },
+      { "_id": "item-44", "name": "Item 2", "resolved": true },
+      { "_id": "item-45", "name": "Item 3", "resolved": false },
+      { "_id": "item-46", "name": "Item 4", "resolved": false },
+      { "_id": "item-47", "name": "Item 5", "resolved": false },
+      { "_id": "item-48", "name": "Item 6", "resolved": false },
+      { "_id": "item-49", "name": "Item 7", "resolved": false },
+      { "_id": "item-50", "name": "Item 8", "resolved": false },
+      { "_id": "item-51", "name": "Item 9", "resolved": false },
+      { "_id": "item-52", "name": "Item 10", "resolved": false },
+      { "_id": "item-53", "name": "Item 11", "resolved": false },
+      { "_id": "item-54", "name": "Item 12", "resolved": false }
+    ],
+    "members": [
+      {
+        "_id": "member-4-1",
+        "name": "Marek",
+        "email": "marek@example.com"
+      },
+      {
+        "_id": "member-5-1",
+        "name": "Jana",
+        "email": "jana@example.com"
+      }
+    ],
+    "archivedAt": "2023-07-09T21:33:40.000Z"
   },
   {
-    "id": "0d1f4a7ce5d548a1a5a52a4e9c6a31d9",
+    "_id": "0d1f4a7ce5d548a1a5a52a4e9c6a31d9",
     "name": "Meal prep ideas",
     "status": "active",
+    "items": [
+      { "_id": "item-55", "name": "Item 1", "resolved": true },
+      { "_id": "item-56", "name": "Item 2", "resolved": true },
+      { "_id": "item-57", "name": "Item 3", "resolved": true },
+      { "_id": "item-58", "name": "Item 4", "resolved": true },
+      { "_id": "item-59", "name": "Item 5", "resolved": true },
+      { "_id": "item-60", "name": "Item 6", "resolved": true },
+      { "_id": "item-61", "name": "Item 7", "resolved": true },
+      { "_id": "item-62", "name": "Item 8", "resolved": true },
+      { "_id": "item-63", "name": "Item 9", "resolved": true },
+      { "_id": "item-64", "name": "Item 10", "resolved": true },
+      { "_id": "item-65", "name": "Item 11", "resolved": true },
+      { "_id": "item-66", "name": "Item 12", "resolved": true },
+      { "_id": "item-67", "name": "Item 13", "resolved": true },
+      { "_id": "item-68", "name": "Item 14", "resolved": true },
+      { "_id": "item-69", "name": "Item 15", "resolved": false },
+      { "_id": "item-70", "name": "Item 16", "resolved": false },
+      { "_id": "item-71", "name": "Item 17", "resolved": false },
+      { "_id": "item-72", "name": "Item 18", "resolved": false },
+      { "_id": "item-73", "name": "Item 19", "resolved": false }
+    ],
     "owner": {
-      "id": "member-6-1",
+      "_id": "member-6-1",
       "name": "Tomas",
       "email": "tomas@example.com"
     },
-    "resolvedCount": 14,
-    "unresolvedCount": 5,
-    "archivedOn": null
+    "members": [
+      {
+        "_id": "member-5-1",
+        "name": "Jana",
+        "email": "jana@example.com"
+      },
+      {
+        "_id": "member-6-1",
+        "name": "Tomas",
+        "email": "tomas@example.com"
+      }
+    ],
+    "archivedAt": null
   },
   {
-    "id": "b4817c0c314a4f7399c441ba73fba788",
+    "_id": "b4817c0c314a4f7399c441ba73fba788",
     "name": "Book wishlist",
     "status": "active",
+    "items": [
+      { "_id": "item-74", "name": "Item 1", "resolved": true },
+      { "_id": "item-75", "name": "Item 2", "resolved": true },
+      { "_id": "item-76", "name": "Item 3", "resolved": true },
+      { "_id": "item-77", "name": "Item 4", "resolved": true },
+      { "_id": "item-78", "name": "Item 5", "resolved": true },
+      { "_id": "item-79", "name": "Item 6", "resolved": true },
+      { "_id": "item-80", "name": "Item 7", "resolved": true },
+      { "_id": "item-81", "name": "Item 8", "resolved": true },
+      { "_id": "item-82", "name": "Item 9", "resolved": true },
+      { "_id": "item-83", "name": "Item 10", "resolved": true },
+      { "_id": "item-84", "name": "Item 11", "resolved": true },
+      { "_id": "item-85", "name": "Item 12", "resolved": true },
+      { "_id": "item-86", "name": "Item 13", "resolved": true },
+      { "_id": "item-87", "name": "Item 14", "resolved": true },
+      { "_id": "item-88", "name": "Item 15", "resolved": true },
+      { "_id": "item-89", "name": "Item 16", "resolved": true },
+      { "_id": "item-90", "name": "Item 17", "resolved": true },
+      { "_id": "item-91", "name": "Item 18", "resolved": true },
+      { "_id": "item-92", "name": "Item 19", "resolved": false },
+      { "_id": "item-93", "name": "Item 20", "resolved": false }
+    ],
     "owner": {
-      "id": "member-7-1",
+      "_id": "member-7-1",
       "name": "Eva",
       "email": "eva@example.com"
     },
-    "resolvedCount": 18,
-    "unresolvedCount": 2,
-    "archivedOn": null
+    "members": [
+      {
+        "_id": "member-7-1",
+        "name": "Eva",
+        "email": "eva@example.com"
+      }
+    ],
+    "archivedAt": null
   },
   {
-    "id": "1f3ce2aa72844382b385c8c734c8b71d",
+    "_id": "1f3ce2aa72844382b385c8c734c8b71d",
     "name": "Home repairs",
     "status": "archived",
     "owner": {
-      "id": "member-8-1",
+      "_id": "member-8-1",
       "name": "Ondra",
       "email": "ondra@example.com"
     },
-    "resolvedCount": 1,
-    "unresolvedCount": 8,
-    "archivedOn": "2025-12-01T10:44:18.000Z"
+    "items": [
+      { "_id": "item-94", "name": "Item 1", "resolved": true },
+      { "_id": "item-95", "name": "Item 2", "resolved": false },
+      { "_id": "item-96", "name": "Item 3", "resolved": false },
+      { "_id": "item-97", "name": "Item 4", "resolved": false },
+      { "_id": "item-98", "name": "Item 5", "resolved": false },
+      { "_id": "item-99", "name": "Item 6", "resolved": false },
+      { "_id": "item-100", "name": "Item 7", "resolved": false },
+      { "_id": "item-101", "name": "Item 8", "resolved": false },
+      { "_id": "item-102", "name": "Item 9", "resolved": false }
+    ],
+    "members": [
+      {
+        "_id": "member-8-1",
+        "name": "Ondra",
+        "email": "ondra@example.com"
+      }
+    ],
+    "archivedAt": "2025-12-01T10:44:18.000Z"
   },
   {
-    "id": "9b7c2dfa773648f19bf9ff2c09b2c341",
+    "_id": "9b7c2dfa773648f19bf9ff2c09b2c341",
     "name": "Work tasks",
     "status": "active",
     "owner": {
-      "id": "member-9-1",
+      "_id": "member-9-1",
       "name": "Martin",
       "email": "martin@example.com"
     },
-    "resolvedCount": 23,
-    "unresolvedCount": 3,
-    "archivedOn": null
+    "items": [
+      { "_id": "item-103", "name": "Item 1", "resolved": true },
+      { "_id": "item-104", "name": "Item 2", "resolved": true },
+      { "_id": "item-105", "name": "Item 3", "resolved": true },
+      { "_id": "item-106", "name": "Item 4", "resolved": true },
+      { "_id": "item-107", "name": "Item 5", "resolved": true },
+      { "_id": "item-108", "name": "Item 6", "resolved": true },
+      { "_id": "item-109", "name": "Item 7", "resolved": true },
+      { "_id": "item-110", "name": "Item 8", "resolved": true },
+      { "_id": "item-111", "name": "Item 9", "resolved": true },
+      { "_id": "item-112", "name": "Item 10", "resolved": true },
+      { "_id": "item-113", "name": "Item 11", "resolved": true },
+      { "_id": "item-114", "name": "Item 12", "resolved": true },
+      { "_id": "item-115", "name": "Item 13", "resolved": true },
+      { "_id": "item-116", "name": "Item 14", "resolved": true },
+      { "_id": "item-117", "name": "Item 15", "resolved": true },
+      { "_id": "item-118", "name": "Item 16", "resolved": true },
+      { "_id": "item-119", "name": "Item 17", "resolved": true },
+      { "_id": "item-120", "name": "Item 18", "resolved": true },
+      { "_id": "item-121", "name": "Item 19", "resolved": true },
+      { "_id": "item-122", "name": "Item 20", "resolved": true },
+      { "_id": "item-123", "name": "Item 21", "resolved": true },
+      { "_id": "item-124", "name": "Item 22", "resolved": true },
+      { "_id": "item-125", "name": "Item 23", "resolved": true },
+      { "_id": "item-126", "name": "Item 24", "resolved": false },
+      { "_id": "item-127", "name": "Item 25", "resolved": false },
+      { "_id": "item-128", "name": "Item 26", "resolved": false }
+    ],
+    "members": [
+      {
+        "_id": "member-9-1",
+        "name": "Martin",
+        "email": "martin@example.com"
+      }
+    ],
+    "archivedAt": null
   },
   {
-    "id": "e81ac7bfb7af40ecb4acb900bd4fd14e",
+    "_id": "e81ac7bfb7af40ecb4acb900bd4fd14e",
     "name": "New apartment setup",
     "status": "active",
     "owner": {
-      "id": "member-10-1",
+      "_id": "member-10-1",
       "name": "Simona",
       "email": "simona@example.com"
     },
-    "resolvedCount": 11,
-    "unresolvedCount": 6,
-    "archivedOn": null
+    "items": [
+      { "_id": "item-129", "name": "Item 1", "resolved": true },
+      { "_id": "item-130", "name": "Item 2", "resolved": true },
+      { "_id": "item-131", "name": "Item 3", "resolved": true },
+      { "_id": "item-132", "name": "Item 4", "resolved": true },
+      { "_id": "item-133", "name": "Item 5", "resolved": true },
+      { "_id": "item-134", "name": "Item 6", "resolved": true },
+      { "_id": "item-135", "name": "Item 7", "resolved": true },
+      { "_id": "item-136", "name": "Item 8", "resolved": true },
+      { "_id": "item-137", "name": "Item 9", "resolved": true },
+      { "_id": "item-138", "name": "Item 10", "resolved": true },
+      { "_id": "item-139", "name": "Item 11", "resolved": true },
+      { "_id": "item-140", "name": "Item 12", "resolved": false },
+      { "_id": "item-141", "name": "Item 13", "resolved": false },
+      { "_id": "item-142", "name": "Item 14", "resolved": false },
+      { "_id": "item-143", "name": "Item 15", "resolved": false },
+      { "_id": "item-144", "name": "Item 16", "resolved": false },
+      { "_id": "item-145", "name": "Item 17", "resolved": false }
+    ],
+    "members": [
+      {
+        "_id": "member-9-1",
+        "name": "Martin",
+        "email": "martin@example.com"
+      },
+      {
+        "_id": "member-10-1",
+        "name": "Simona",
+        "email": "simona@example.com"
+      }
+    ],
+    "archivedAt": null
   }
 ]
