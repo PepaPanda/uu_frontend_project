@@ -2,6 +2,8 @@ import Modal from "react-modal";
 import styled from "styled-components";
 import { type ReactNode } from "react";
 
+import { useTheme } from "../context/ThemeContext/useTheme";
+
 Modal.setAppElement("#root");
 
 type ModalWindowProps = {
@@ -20,9 +22,11 @@ const StyledOverlay = styled.div`
   z-index: 2000;
 `;
 
-const StyledContent = styled.div`
+const StyledContent = styled.div<{ $theme: string }>`
   position: relative;
-  background: #ffffff;
+  background: ${({ $theme }) => ($theme === "light" ? "#ffffff" : "#0b0b0b")};
+  border: ${({ $theme }) =>
+    $theme === "light" ? "none" : "2px solid #545454"};
   min-width: 360px;
   max-width: 520px;
   width: 90%;
@@ -63,6 +67,8 @@ const ModalWindow = ({
   onRequestClose,
   children,
 }: ModalWindowProps) => {
+  const { theme } = useTheme();
+
   return (
     <Modal
       isOpen={isOpen}
@@ -72,7 +78,7 @@ const ModalWindow = ({
       style={{ overlay: {}, content: {} }} // prevent react-modal inline styles
     >
       <StyledOverlay className="modal-overlay">
-        <StyledContent className="modal-content">
+        <StyledContent className="modal-content" $theme={theme || "light"}>
           <CloseButton onClick={onRequestClose}>✕</CloseButton>
           {children}
         </StyledContent>

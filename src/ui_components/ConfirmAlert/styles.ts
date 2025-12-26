@@ -9,10 +9,12 @@ export const Overlay = styled.div`
   justify-content: center;
 `;
 
-export const Box = styled.div`
-  background: white;
+export const Box = styled.div<{ $theme: string }>`
+  background: ${({ $theme }) => ($theme === "light" ? "white" : "#0b0b0b")};
   padding: 20px;
   border-radius: 8px;
+  border: ${({ $theme }) =>
+    $theme === "light" ? "none" : "2px solid #545454"};
   width: 280px;
   text-align: center;
 `;

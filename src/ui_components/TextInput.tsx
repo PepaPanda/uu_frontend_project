@@ -3,10 +3,16 @@ import { nanoid } from "nanoid/non-secure";
 
 import { useMediaQuery } from "react-responsive";
 
-const Input = styled.input<{ $width: string }>`
+import { useTheme } from "../context/ThemeContext/useTheme";
+
+const Input = styled.input<{ $width: string; $theme: string }>`
   padding: 0 10px;
   width: ${({ $width }) => $width};
   min-height: 45px;
+  background: ${({ $theme }) => ($theme === "light" ? "#ffffff" : "#434343ff")};
+  color: ${({ $theme }) => ($theme === "light" ? "inherit" : "white")};
+  border: ${({ $theme }) =>
+    $theme === "light" ? "2px solid black" : "2px solid white"};
 `;
 
 type TextInputProps = {
@@ -19,6 +25,8 @@ const TextInput = ({
   placeholder = "",
   ...rest
 }: TextInputProps) => {
+  const { theme } = useTheme();
+
   const isMobile = useMediaQuery({ query: "(max-width: 817px)" });
 
   const appliedWidth = isMobile ? "100%" : width;
@@ -29,6 +37,7 @@ const TextInput = ({
       $width={appliedWidth}
       placeholder={placeholder}
       type="text"
+      $theme={theme || "light"}
       {...rest}
     />
   );

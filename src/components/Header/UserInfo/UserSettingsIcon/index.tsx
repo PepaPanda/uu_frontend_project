@@ -5,6 +5,8 @@ import { Link } from "react-router";
 
 import { useUser } from "../../../../context/UserContext/useUser";
 
+import { useTheme } from "../../../../context/ThemeContext/useTheme";
+
 const Div = styled.div`
   border-radius: 100%;
   cursor: pointer;
@@ -28,11 +30,14 @@ const NewsBubble = styled.div`
   font-size: small;
 `;
 
-const Img = styled.img`
+const Img = styled.img<{ $theme: string }>`
   width: 33px;
+  ${({ $theme }) => $theme === "dark" && "filter:invert(1);"}
 `;
 
 const UserSettingsIcon = () => {
+  const { theme } = useTheme();
+
   const { user } = useUser();
 
   const renderNewsBubble = () => {
@@ -46,7 +51,7 @@ const UserSettingsIcon = () => {
     <Link to="/user/settings">
       <Div>
         {renderNewsBubble()}
-        <Img src={userImg} />
+        <Img src={userImg} $theme={theme || "light"} />
       </Div>
     </Link>
   );

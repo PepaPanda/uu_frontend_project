@@ -414,5 +414,17 @@
   "lightmode is currently on": {
     "en": "lightmode is currently on",
     "cs": "světlý režim je zapnutý"
+  },
+  "are you sure you want to delete": {
+    "en": "Are you sure you want to delete",
+    "cs": "Opravdu chcete smazat"
+  },
+  "delete": {
+    "en": "delete",
+    "cs": "smazat"
+  },
+  "cancel": {
+    "en": "cancel",
+    "cs": "zpět"
   }
 }

@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
+import { useTheme } from "../context/ThemeContext/useTheme";
+
 const Btn = styled.button<{ $type: string }>`
   width: max-content;
   height: 43px;
-  border: 2px solid black;
+  border: 2px solid ${({ $type }) => ($type === "light" ? "black" : "#868686")};
   padding: 10px 20px;
   background: none;
   display: flex;
@@ -60,6 +62,12 @@ const Button = ({
   styleType = "light",
   ...rest
 }: ButtonProps) => {
+  const { theme } = useTheme();
+
+  if (theme === "dark") {
+    styleType = styleType === "light" ? "dark" : "light";
+  }
+
   return (
     <Btn $type={styleType} {...rest}>
       {imgSrc && <Img src={imgSrc} $type={styleType} />}
