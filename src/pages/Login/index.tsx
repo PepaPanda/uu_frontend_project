@@ -16,7 +16,13 @@ import { toast } from "react-toastify";
 //Helpers
 import { loginUser, validateEmail } from "../../helpers/loginUser";
 
+//Languages
+import { useLanguage } from "../../context/LanguageContext/useLanguage";
+import { resolveTranslationString } from "../../helpers/resolveTranslationString";
+
 const Login = () => {
+  const { language } = useLanguage();
+
   const navigate = useNavigate();
 
   const [loginData, setLoginData] = useState({
@@ -37,25 +43,43 @@ const Login = () => {
     const { email, password } = loginData;
     try {
       if (email.length === 0 || password.length === 0)
-        return toast("Please fill in the email and password");
+        return toast(
+          resolveTranslationString(
+            "please fill in the email and password",
+            language
+          )
+        );
 
       if (!validateEmail(email))
-        return toast("The e-mail is in incorrect format");
+        return toast(
+          resolveTranslationString(
+            "the e-mail is in incorrect format",
+            language
+          )
+        );
 
       const loginRes = await loginUser(email, password); //Throws err on fail
       if (loginRes.ok) return navigate("/");
 
       if (!(loginRes.statusCode >= 500)) {
-        return toast("Incorrect email or password");
+        return toast(
+          resolveTranslationString("incorrect email or password", language)
+        );
       }
 
       return toast(
-        "An error occured while trying to log in, please report this issue"
+        resolveTranslationString(
+          "an error occured while trying to log in, please report this issue",
+          language
+        )
       );
     } catch (error) {
       console.error(error);
       toast(
-        "An error occured while trying to log in, please report this issue"
+        resolveTranslationString(
+          "an error occured while trying to log in, please report this issue",
+          language
+        )
       );
     }
   };
@@ -68,7 +92,7 @@ const Login = () => {
       height="calc(100dvh - 200px)"
       padding="10px"
     >
-      <h1>Log in</h1>
+      <h1>{resolveTranslationString("log in", language)}</h1>
       <h2>Shared Shopping</h2>
       <Gap />
       <TextInput
@@ -80,19 +104,21 @@ const Login = () => {
       />
       <Gap $height="5px" />
       <TextInput
-        placeholder="password"
+        placeholder={resolveTranslationString("password", language)}
         type="password"
         value={loginData.password || ""}
         onChange={handleLoginDataChange}
         name="password"
       />
       <Gap $height="5px" />
-      <Button onClick={handleLoginSubmit}>Submit login</Button>
+      <Button onClick={handleLoginSubmit}>
+        {resolveTranslationString("submit login", language)}
+      </Button>
       <Gap />
       <TextWithIcon imgSrc={registerImg}>
-        Don't have an account yet?{" "}
+        {resolveTranslationString("don't have an account yet?", language)}{" "}
         <NavLink to="/register">
-          <u>Register here!</u>
+          <u>{resolveTranslationString("register here!", language)}</u>
         </NavLink>
       </TextWithIcon>
     </Box>

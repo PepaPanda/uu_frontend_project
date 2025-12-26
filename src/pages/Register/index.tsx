@@ -5,9 +5,14 @@ import TextWithIcon from "../../ui_components/TextWithIcon";
 import Button from "../../ui_components/Button";
 import { NavLink } from "react-router";
 
+//Languages
+import { useLanguage } from "../../context/LanguageContext/useLanguage";
+import { resolveTranslationString } from "../../helpers/resolveTranslationString";
+
 import loginImg from "./login.png";
 
 const Register = () => {
+  const { language } = useLanguage();
   return (
     <Box
       direction="column"
@@ -16,23 +21,30 @@ const Register = () => {
       height="calc(100dvh - 200px)"
       padding="10px"
     >
-      <h1>Register</h1>
+      <h1>{resolveTranslationString("register", language)}</h1>
       <h2>Shared Shopping</h2>
       <Gap />
       <TextInput placeholder="email" type="email" />
       <Gap $height="5px" />
-      <TextInput placeholder="password" type="password" />
+      <TextInput
+        placeholder={resolveTranslationString("password", language)}
+        type="password"
+      />
       <Gap $height="5px" />
-      <TextInput placeholder="first name" />
+      <TextInput
+        placeholder={resolveTranslationString("first name", language)}
+      />
       <Gap $height="5px" />
-      <TextInput placeholder="last name" />
+      <TextInput
+        placeholder={resolveTranslationString("last name", language)}
+      />
       <Gap />
-      <Button>Register now!</Button>
+      <Button>{resolveTranslationString("register now!", language)}</Button>
       <Gap />
       <TextWithIcon imgSrc={loginImg}>
-        Already have an acoount?{" "}
+        {resolveTranslationString("already have an account?", language)}{" "}
         <NavLink to="/login">
-          <u>Log in here</u>
+          <u>{resolveTranslationString("log in here", language)}</u>
         </NavLink>
       </TextWithIcon>
     </Box>

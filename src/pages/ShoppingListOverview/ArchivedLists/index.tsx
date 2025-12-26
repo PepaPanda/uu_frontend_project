@@ -23,7 +23,13 @@ import UnorderedListOfCards from "../../../ui_components/UnorderedListOfCards";
 import { useShoppingListMultiple } from "../../../context/ShoppingListMultiple/useShoppingListMultiple";
 import { useUser } from "../../../context/UserContext/useUser";
 
+//Language
+import { useLanguage } from "../../../context/LanguageContext/useLanguage";
+import { resolveTranslationString } from "../../../helpers/resolveTranslationString";
+
 const ArchivedLists = () => {
+  const { language } = useLanguage();
+
   const isMobile = useMediaQuery({ query: "(max-width:817px)" });
 
   const [searchString, setSearchString] = useState("");
@@ -39,7 +45,10 @@ const ArchivedLists = () => {
 
     (async () => {
       const list = await fetchShoppingListMultiple(user._id);
-      if (!list) return toast("failed to get shopping list");
+      if (!list)
+        return toast(
+          resolveTranslationString("failed to get shopping list", language)
+        );
       setShoppingListMultiple(list);
     })();
   }, [user, setShoppingListMultiple, shoppingListMultiple]);
@@ -68,17 +77,19 @@ const ArchivedLists = () => {
               {shoppingList.name}
             </ShoppingListCardContent.Name>
             <ShoppingListCardContent.Owner>
-              Owned by {shoppingList.owner.name}
+              {resolveTranslationString("owned by", language)}{" "}
+              {shoppingList.owner.name}
             </ShoppingListCardContent.Owner>
             <ShoppingListCardContent.Archived>
-              Archived on{" "}
+              {resolveTranslationString("archived on", language)}{" "}
               {shoppingList.archivedAt
                 ? convertIsoStringToYYYYMMDD(shoppingList.archivedAt)
                 : "unavailable"}
             </ShoppingListCardContent.Archived>
             <ShoppingListCardContent.ItemsDone>
               {shoppingList.items?.filter((i) => i.resolved).length || "--"} /{" "}
-              {shoppingList.items?.length || "--"} Items done
+              {shoppingList.items?.length || "--"}{" "}
+              {resolveTranslationString("items done", language)}
             </ShoppingListCardContent.ItemsDone>
           </ShoppingListCardContent>
         </UnorderedListOfCards.Card>
@@ -100,10 +111,13 @@ const ArchivedLists = () => {
         gap="10px"
         direction={isMobile ? "column" : "row"}
       >
-        <h1>Archived Shopping Lists</h1>
+        <h1>{resolveTranslationString("archived shopping lists", language)}</h1>
         <Box gap="10px" justify={isMobile ? "space-between" : "normal"}>
           <TextInput
-            placeholder="Search by name..."
+            placeholder={`${resolveTranslationString(
+              "search by name",
+              language
+            )}...`}
             value={searchString}
             onChange={(e) => {
               setSearchString(e.target.value);
@@ -111,10 +125,17 @@ const ArchivedLists = () => {
           />
           <Select onChange={handleChangeSort}>
             <Select.Option value="archived">
-              Sort by: Recently archived
+              {resolveTranslationString("sort by", language)}:{" "}
+              {resolveTranslationString("recently archived", language)}
             </Select.Option>
-            <Select.Option value="owner">Sort by: Owner</Select.Option>
-            <Select.Option value="name">Sort by: Name</Select.Option>
+            <Select.Option value="owner">
+              {resolveTranslationString("sort by", language)}:{" "}
+              {resolveTranslationString("owner", language)}
+            </Select.Option>
+            <Select.Option value="name">
+              {resolveTranslationString("sort by", language)}:{" "}
+              {resolveTranslationString("name", language)}
+            </Select.Option>
           </Select>
         </Box>
       </Box>

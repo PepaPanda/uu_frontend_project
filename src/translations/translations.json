@@ -1,0 +1,418 @@
+{
+  "active lists": {
+    "en": "Active lists",
+    "cs": "Aktivní seznamy"
+  },
+  "archived lists": {
+    "en": "Archived lists",
+    "cs": "Archivované seznamy"
+  },
+  "statistics": {
+    "en": "Statistics",
+    "cs": "Statistiky"
+  },
+  "about": {
+    "en": "About",
+    "cs": "O nás"
+  },
+  "contact": {
+    "en": "Contact",
+    "cs": "Kontakty"
+  },
+  "donate": {
+    "en": "Donate",
+    "cs": "Podpoř nás"
+  },
+  "sort by": {
+    "en": "Sort by",
+    "cs": "Seřadit dle"
+  },
+  "name": {
+    "en": "name",
+    "cs": "jméno"
+  },
+  "owner": {
+    "en": "owner",
+    "cs": "vlastník"
+  },
+  "create new list": {
+    "en": "create new list",
+    "cs": "vytvořit nový seznam"
+  },
+  "search by name": {
+    "en": "search by list name",
+    "cs": "hledej dle názvu seznamu"
+  },
+  "owned by": {
+    "en": "Owned by",
+    "cs": "Majitelem je"
+  },
+  "open items": {
+    "en": "Open items",
+    "cs": "Otevřené položky"
+  },
+  "total items": {
+    "en": "Total items",
+    "cs": "Všechny položky"
+  },
+  "log out": {
+    "en": "Log out",
+    "cs": "Odhlásit se"
+  },
+  "account settings": {
+    "en": "Account settings",
+    "cs": "Nastavení účtu"
+  },
+  "go back": {
+    "en": "Go back",
+    "cs": "Zpět"
+  },
+  "hide resolved": {
+    "en": "Hide resolved",
+    "cs": "Skrýt vyřešené"
+  },
+  "show resolved": {
+    "en": "Show resolved",
+    "cs": "Zobrazit vyřešené"
+  },
+  "members": {
+    "en": "Members",
+    "cs": "Správci"
+  },
+  "settings": {
+    "en": "Settings",
+    "cs": "Nastavení"
+  },
+  "active members": {
+    "en": "Active members",
+    "cs": "Aktivní správci"
+  },
+  "active": {
+    "en": "Active",
+    "cs": "Aktivní"
+  },
+  "archived": {
+    "en": "Archived",
+    "cs": "Archivován"
+  },
+  "add": {
+    "en": "Add",
+    "cs": "Přidat"
+  },
+  "items": {
+    "en": "items",
+    "cs": "položky"
+  },
+  "resolved": {
+    "en": "resolved",
+    "cs": "vyřešené"
+  },
+  "unresolved": {
+    "en": "unresolved",
+    "cs": "nevyřešené"
+  },
+  "name of your shopping list": {
+    "en": "Name of your shopping list",
+    "cs": "Jak se má list jmenovat"
+  },
+  "create": {
+    "en": "Create",
+    "cs": "Vytvořit"
+  },
+  "failed to get shopping list": {
+    "en": "failed to get shopping list",
+    "cs": "Nezdařilo se stáhnout seznam"
+  },
+  "cannot add empty name": {
+    "en": "cannot add empty name",
+    "cs": "jméno nemůže být prázdné"
+  },
+  "an error occured, try logging out and in": {
+    "en": "an error occured, try logging out and in.",
+    "cs": "nastala nečekaná chyba. Zkuste se odhlásit a znovu přihlásit."
+  },
+  "an error occured while trying to create a new list": {
+    "en": "an error occured while trying to create a new list",
+    "cs": "nastal problém s vytvářením nového seznamu"
+  },
+  "archived shopping lists": {
+    "en": "Archived Shopping Lists",
+    "cs": "Archivované Nákupní Seznamy"
+  },
+  "recently archived": {
+    "en": "recently archived",
+    "cs": "nedávno archivované"
+  },
+  "archived on": {
+    "en": "Archived on",
+    "cs": "Archivováno"
+  },
+  "items done": {
+    "en": "items done",
+    "cs": "vyřešeno"
+  },
+  "name of the item": {
+    "en": "name of the item",
+    "cs": "název položky"
+  },
+  "you cannot add an empty value": {
+    "en": "you cannot add an empty value",
+    "cs": "nelze přidat položku s prázdným názvem"
+  },
+  "an unexpected error occured, try reloading the page": {
+    "en": "an unexpected error occured, try reloading the page",
+    "cs": "Nastala nečekaná chyba, zkuste prosím obnovit stránku"
+  },
+  "this list is archived, you cannot add new items": {
+    "en": "this list is archived, you cannot add new items",
+    "cs": "Tento list je archivován, nelze přidávat nové položky"
+  },
+  "items_count_over4": {
+    "en": "items",
+    "cs": "položek"
+  },
+  "resolved_count_over4": {
+    "en": "resolved",
+    "cs": "vyřešených"
+  },
+  "unresolved_count_over4": {
+    "en": "unresolved",
+    "cs": "nevyřešených"
+  },
+  "items_count_unit": {
+    "en": "item",
+    "cs": "položka"
+  },
+  "resolved_count_unit": {
+    "en": "resolved",
+    "cs": "vyřešena"
+  },
+  "unresolved_count_unit": {
+    "en": "unresolved",
+    "cs": "nevyřešena"
+  },
+  "unexpected error occured": {
+    "en": "unexpected error occured",
+    "cs": "nastala nečekaná chyba"
+  },
+  "successfully accepted. You are now a member of the list": {
+    "en": "Successfully accepted. You are now a member of the list.",
+    "cs": "Úspěšně potvrzeno. Nyní jste členem seznamu."
+  },
+  "successfully declined invitation": {
+    "en": "successfully declined invitation",
+    "cs": "pozvánka byla odmítnuta"
+  },
+  "no pending invitations": {
+    "en": "no pending invitations",
+    "cs": "žádné pozvánky"
+  },
+  "wants you to join their shopping list": {
+    "en": "wants you to join their shopping list",
+    "cs": "vás zve do svého nákupního seznamu"
+  },
+  "accept": {
+    "en": "Accept",
+    "cs": "Přijmout"
+  },
+  "decline": {
+    "en": "Decline",
+    "cs": "odmítnout"
+  },
+  "darkmode": {
+    "en": "Darkmode",
+    "cs": "Tmavý režim"
+  },
+  "select your language": {
+    "en": "Select your language",
+    "cs": "Vyberte si preferovaný jazyk"
+  },
+  "language": {
+    "en": "Language",
+    "cs": "Jazyk"
+  },
+  "invitations": {
+    "en": "Invitations",
+    "cs": "Pozvánky"
+  },
+  "shopping lists others invited you to": {
+    "en": "shopping lists others invited you to",
+    "cs": "nákupní seznamy, do kterých vás pozvali ostatní uživatelé"
+  },
+  "manage members for": {
+    "en": "manage members for",
+    "cs": "Nastavení správců pro seznam"
+  },
+  "invite new members": {
+    "en": "Invite new members",
+    "cs": "Pozvěte nové členy"
+  },
+  "invite a member": {
+    "en": "invite a member",
+    "cs": "pozvat člena"
+  },
+  "current members": {
+    "en": "current members",
+    "cs": "seznam členů"
+  },
+  "only owner can invite": {
+    "en": "only owner can invite",
+    "cs": "pouze majitel může odesílat pozvánky"
+  },
+  "member invited. They can now join (if they accept)": {
+    "en": "Member invited. They can now join (if they accept)",
+    "cs": "Pozvánka byla odeslána uživateli. Pokud pozvánku přijmou, dostanou k seznamu přístup."
+  },
+  "email_example": {
+    "en": "name@example.com",
+    "cs": "jmeno@priklad.cz"
+  },
+  "the owner cannot delete themselves": {
+    "en": "the owner cannot delete themselves",
+    "cs": "majitel nemůže smazat sám sebe"
+  },
+  "only owner can manage members": {
+    "en": "only owner can manage members",
+    "cs": "pouze majitel může upravovat členy"
+  },
+  "member removed": {
+    "en": "member removed",
+    "cs": "uživatel odebrán"
+  },
+  "could not delete list, are you the owner?": {
+    "en": "Could not delete list, are you the owner?",
+    "cs": "Nepodařilo se smazat seznam, jste vlastníkem?"
+  },
+  "list permanently deleted": {
+    "en": "list permanently deleted",
+    "cs": "list permanentně smazán"
+  },
+  "only owner can change list name": {
+    "en": "only owner can change list name",
+    "cs": "pouze majitel může měnit název seznamu"
+  },
+  "could not change the settings, are you the owner?": {
+    "en": "could not change the settings, are you the owner?",
+    "cs": "nepodařilo se změnit nastavení, jste vlastníkem?"
+  },
+  "succesfully updated name": {
+    "en": "succesfully updated name",
+    "cs": "název úspěšně aktualizován"
+  },
+  "only owner can archive list": {
+    "en": "only owner can archive list",
+    "cs": "pouze majitel může archivovat seznam"
+  },
+  "list settings": {
+    "en": "List settings",
+    "cs": "Nastavení seznamu"
+  },
+  "general settings": {
+    "en": "General settings",
+    "cs": "Obecná nastavení"
+  },
+  "manage your list's basic information and status": {
+    "en": "manage your list's basic information and status",
+    "cs": "spravujte základní nastavení seznamu a měntě jeho stav"
+  },
+  "list name": {
+    "en": "list name",
+    "cs": "jméno nákupního seznamu"
+  },
+  "save changes": {
+    "en": "save changes",
+    "cs": "uložit změny"
+  },
+  "archive List": {
+    "en": "archive list",
+    "cs": "archivovat seznam"
+  },
+  "hide this list from your active lists overview": {
+    "en": "hide this list from your active lists overview",
+    "cs": "archivací shováte list ze základního přehledu"
+  },
+  "danger zone": {
+    "en": "danger zone",
+    "cs": "Nastavení vyžadující zvýšenou opatrnost"
+  },
+  "irreversible changes to your shopping list": {
+    "en": "irreversible changes to your shopping list",
+    "cs": "změny zde provedené nelze vzít zpět"
+  },
+  "Permanently delete this shopping list and all it's items. This action cannot be undone.": {
+    "en": "Permanently delete this shopping list and all it's items. This action cannot be undone.",
+    "cs": "Navždy smazat tento nákupní seznam a veškeré položky v něm. Tento krok nelze vrátit."
+  },
+  "delete list": {
+    "en": "Delete list",
+    "cs": "Smazat seznam"
+  },
+  "register now!": {
+    "en": "Register now!",
+    "cs": "Registrujte se!"
+  },
+  "already have an account?": {
+    "en": "already have an account?",
+    "cs": "již máte účet?"
+  },
+  "log in here": {
+    "en": "log in here",
+    "cs": "přihlašte se zde"
+  },
+  "register": {
+    "en": "Register",
+    "cs": "Registrace"
+  },
+  "password": {
+    "en": "password",
+    "cs": "heslo"
+  },
+  "first name": {
+    "en": "first name",
+    "cs": "jméno"
+  },
+  "last name": {
+    "en": "last name",
+    "cs": "příjmení"
+  },
+  "please fill in the email and password": {
+    "en": "Please fill in the email and password",
+    "cs": "Prosím vyplňte e-mail a heslo"
+  },
+  "the e-mail is in incorrect format": {
+    "en": "the e-mail is in incorrect format",
+    "cs": "email nemá správný formát"
+  },
+  "incorrect email or password": {
+    "en": "incorrect email or password",
+    "cs": "nesprávný e-mail nebo heslo"
+  },
+  "an error occured while trying to log in, please report this issue": {
+    "en": "an error occured while trying to log in, please report this issue",
+    "cs": "při přihlašování nastala nečekaná chyba. Nahlašte prosím tento problém"
+  },
+  "log in": {
+    "en": "Log In",
+    "cs": "Přihlášení"
+  },
+  "submit login": {
+    "en": "submit login",
+    "cs": "potvrdit přihlášení"
+  },
+  "don't have an account yet?": {
+    "en": "Don't have an account yet?",
+    "cs": "Ještě nemáte účet?"
+  },
+  "register here!": {
+    "en": "Register here!",
+    "cs": "Registrujte se zde!"
+  },
+  "darkmode is currently on": {
+    "en": "darkmode is currently on",
+    "cs": "tmavý režim je zapnutý"
+  },
+  "lightmode is currently on": {
+    "en": "lightmode is currently on",
+    "cs": "světlý režim je zapnutý"
+  }
+}

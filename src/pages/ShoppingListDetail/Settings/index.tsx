@@ -21,11 +21,21 @@ import {
   fetchEditShoppingListDetail,
 } from "../../../helpers/fetchShoppingListDetail";
 
+//Languages
+import { useLanguage } from "../../../context/LanguageContext/useLanguage";
+import { resolveTranslationString } from "../../../helpers/resolveTranslationString";
+
+import { useTheme } from "../../../context/ThemeContext/useTheme";
+
 const Small = styled.span`
   font-size: small;
 `;
 
 const Settings = () => {
+  const { theme } = useTheme();
+
+  const { language } = useLanguage();
+
   const isFirst = useRef(true);
   const { user } = useUser();
   const isMobile = useMediaQuery({ query: "(max-width: 817px)" });
@@ -45,7 +55,10 @@ const Settings = () => {
     (async () => {
       if (shoppingList) return setCurrentListName(shoppingList.name);
       const list = await fetchShoppingList(id);
-      if (!list) return toast("failed to get shopping list");
+      if (!list)
+        return toast(
+          resolveTranslationString("failed to get shopping list", language)
+        );
       setShoppingList(list);
       setCurrentListName(list.name);
     })();
@@ -61,19 +74,28 @@ const Settings = () => {
 
   const handleClickDelete = () => {
     if (user?._id !== shoppingList?.owner._id)
-      return toast("Only owner can delete list");
+      return toast(
+        resolveTranslationString("only owner can delete list", language)
+      );
     setConfirmOpen(true);
   };
 
   const handleConfirmDelete = async () => {
-    if (!shoppingList) return toast("Unexpected error");
+    if (!shoppingList)
+      return toast(resolveTranslationString("unexpected error", language));
 
     setConfirmOpen(false);
     const deleted = await fetchDeleteShoppingListDetail(shoppingList._id);
 
-    if (!deleted) return toast("Could not delete - are you the owner?");
+    if (!deleted)
+      return toast(
+        resolveTranslationString(
+          "could not delete list, are you the owner?",
+          language
+        )
+      );
 
-    toast("List permanently deleted");
+    toast(resolveTranslationString("list permanently deleted", language));
 
     setShoppingListMultiple((list) => {
       if (!list) return null;
@@ -90,10 +112,17 @@ const Settings = () => {
 
   const handleSubmitListName = async () => {
     if (!shoppingList || !user)
-      return toast("Unexpected error, try reloading the page");
+      return toast(
+        resolveTranslationString(
+          "an unexpected error occured, try reloading the page",
+          language
+        )
+      );
 
     if (user._id !== shoppingList.owner._id)
-      return toast("Only owner can change list name");
+      return toast(
+        resolveTranslationString("only owner can change list name", language)
+      );
 
     const changed = await fetchEditShoppingListDetail(
       shoppingList._id,
@@ -102,7 +131,12 @@ const Settings = () => {
     );
 
     if (!changed)
-      return toast("Could not change the settings - are you the owner?");
+      return toast(
+        resolveTranslationString(
+          "could not change the settings, are you the owner?",
+          language
+        )
+      );
 
     setShoppingList((list) => {
       if (!list) return null;
@@ -112,17 +146,24 @@ const Settings = () => {
       };
     });
 
-    toast("succesfully updated name");
+    toast(resolveTranslationString("succesfully updated name", language));
   };
 
   const handleArchiveToggle = async (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     if (!shoppingList || !user)
-      return toast("Unexpected error, try reloading the page");
+      return toast(
+        resolveTranslationString(
+          "an unexpected error occured, try reloading the page",
+          language
+        )
+      );
 
     if (user._id !== shoppingList.owner._id)
-      return toast("Only owner can archive list");
+      return toast(
+        resolveTranslationString("only owner can archive list", language)
+      );
 
     const status = e.target.checked ? "archived" : "active";
 
@@ -133,7 +174,12 @@ const Settings = () => {
     );
 
     if (!archived)
-      return toast("Could not change the settings - are you the owner?");
+      return toast(
+        resolveTranslationString(
+          "could not change the settings, are you the owner?",
+          language
+        )
+      );
 
     setShoppingList((list) => {
       if (!list) return null;
@@ -148,21 +194,31 @@ const Settings = () => {
   return (
     <>
       <Box direction="column" padding={isMobile ? "0" : "120px"}>
-        <h1>List settings</h1>
+        <h1>{resolveTranslationString("list settings", language)}</h1>
         <Gap />
-        <Box direction="column" bg="#f1f1f1" padding="25px" align="normal">
-          <Gap $height="12px" />
-          <h2>General settings</h2>
-          <Small>Manage your list's basic information and status</Small>
+        <Box
+          direction="column"
+          bg={theme === "light" ? "#e5e5e5" : "#373737"}
+          padding="25px"
+          align="normal"
+        >
+          <Gap $height="30px" />
+          <h2>{resolveTranslationString("general settings", language)}</h2>
+          <Small>
+            {resolveTranslationString(
+              "manage your list's basic information and status",
+              language
+            )}
+          </Small>
           <Gap />
-          <span>List name</span>
+          <span>{resolveTranslationString("list name", language)}</span>
           <TextInput
             value={currentListName}
             onChange={handleChangeListNameText}
           />
           <Gap $height="7px" />
           <Button styleType="dark" onClick={handleSubmitListName}>
-            Save changes
+            {resolveTranslationString("save changes", language)}
           </Button>
           <Gap />
           <Box
@@ -171,33 +227,54 @@ const Settings = () => {
             gap={isMobile ? "20px" : "0"}
           >
             <Box direction="column">
-              <strong>Archive List</strong>
-              <Small>Hide this list from your active lists overview</Small>
+              <strong>
+                {resolveTranslationString("archive List", language)}
+              </strong>
+              <Small>
+                {resolveTranslationString(
+                  "hide this list from your active lists overview",
+                  language
+                )}
+              </Small>
             </Box>
             <ToggleCheckbox
               onChange={handleArchiveToggle}
               checked={shoppingList ? shoppingList.status !== "active" : false}
             />
           </Box>
-          <Gap $height="12px" />
+          <Gap $height="30px" />
         </Box>
         <Gap />
 
-        <Box direction="column" bg="#f1f1f1" padding="25px" align="normal">
-          <Gap $height="12px" />
-          <h2>Danger zone</h2>
-          <Gap $height="7px" />
-          <Small>Irreversible changes to your shopping LIST</Small>
+        <Box
+          direction="column"
+          bg={theme === "light" ? "#e5e5e5" : "#373737"}
+          padding="25px"
+          align="normal"
+        >
+          <Gap $height="30px" />
+          <h2>{resolveTranslationString("danger zone", language)}</h2>
+          <Gap $height="20px" />
+          <Small>
+            {resolveTranslationString(
+              "irreversible changes to your shopping list",
+              language
+            )}
+          </Small>
           <Gap $height="12px" />
           <Small>
             <strong>
-              Permanently delete this shopping list and all it's items. This
-              action cannot be undone
+              {resolveTranslationString(
+                "Permanently delete this shopping list and all it's items. This action cannot be undone.",
+                language
+              )}
             </strong>
           </Small>
           <Gap $height="12px" />
-          <Button onClick={handleClickDelete}>Delete list</Button>
-          <Gap $height="12px" />
+          <Button onClick={handleClickDelete}>
+            {resolveTranslationString("delete list", language)}
+          </Button>
+          <Gap $height="30px" />
         </Box>
       </Box>
       <ConfirmDelete

@@ -8,22 +8,33 @@ import Box from "../ui_components/Box";
 import Gap from "../ui_components/Gap";
 
 import { useMediaQuery } from "react-responsive";
+import { resolveTranslationString } from "../helpers/resolveTranslationString";
+
+import { useLanguage } from "../context/LanguageContext/useLanguage";
 
 //Images
 import instagramImg from "./images/instagram.png";
 import linkedinImg from "./images/linkedin.png";
 import xImg from "./images/x.png";
 
-const items = [
-  { to: "/", label: "Active lists" },
-  { to: "/archived", label: "Archived lists" },
-  { to: "/logout", label: "Log out" },
-  { to: "/user/settings", label: "Account settings" },
-  { to: "/shopping-list/1234", label: "TEST LIST DETAIL - HOMEWORK" },
-];
-
 const AppTemplate = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 817px)" });
+
+  const { language } = useLanguage();
+
+  const items = [
+    { to: "/", label: resolveTranslationString("active lists", language) },
+    {
+      to: "/archived",
+      label: resolveTranslationString("archived lists", language),
+    },
+    { to: "/stats", label: resolveTranslationString("statistics", language) },
+    { to: "/logout", label: resolveTranslationString("log out", language) },
+    {
+      to: "/user/settings",
+      label: resolveTranslationString("account settings", language),
+    },
+  ];
 
   return (
     <PageWrapper>
@@ -32,9 +43,14 @@ const AppTemplate = () => {
           <>
             <Header.Logo>Shared shopping</Header.Logo>
             <Header.Menu>
-              <Header.Menu.Item link="/">Active Lists</Header.Menu.Item>
+              <Header.Menu.Item link="/">
+                {resolveTranslationString("active lists", language)}
+              </Header.Menu.Item>
               <Header.Menu.Item link="/archived">
-                Archived Lists
+                {resolveTranslationString("archived lists", language)}
+              </Header.Menu.Item>
+              <Header.Menu.Item link="/stats">
+                {resolveTranslationString("statistics", language)}
               </Header.Menu.Item>
             </Header.Menu>
             <Header.UserInfo>
@@ -59,9 +75,17 @@ const AppTemplate = () => {
       </ContentWrapper>
       <Footer>
         <Footer.Links>
-          <Footer.Links.Link target="/about">About</Footer.Links.Link>
-          <Footer.Links.Link target="/contact">Contact</Footer.Links.Link>
-          <Footer.Links.Link target="/donate">Donate</Footer.Links.Link>
+          <Footer.Links.Link target="/about">
+            {resolveTranslationString("about", language)}
+          </Footer.Links.Link>
+          <Footer.Links.Link target="/contact">
+            {" "}
+            {resolveTranslationString("contact", language)}
+          </Footer.Links.Link>
+          <Footer.Links.Link target="/donate">
+            {" "}
+            {resolveTranslationString("donate", language)}
+          </Footer.Links.Link>
         </Footer.Links>
         <Footer.Socials>
           <Footer.Socials.Social

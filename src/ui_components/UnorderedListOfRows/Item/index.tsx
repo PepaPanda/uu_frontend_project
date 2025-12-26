@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const Li = styled.li<{ $clickable: boolean }>`
+import { useTheme } from "../../../context/ThemeContext/useTheme";
+
+export const Li = styled.li<{ $clickable: boolean; $theme: string }>`
   display: flex;
   align-items: center;
   padding: 0 20px;
@@ -9,7 +11,8 @@ export const Li = styled.li<{ $clickable: boolean }>`
   border: 1px solid black;
   justify-content: space-between;
   &:hover {
-    background: #eaeaea;
+    background: ${({ $theme }) =>
+      $theme === "light" ? "#ffffffff" : "#2d2d2d;"};
   }
 `;
 
@@ -19,8 +22,9 @@ type Props = React.ComponentProps<"li"> & {
 };
 
 const Item = ({ children, clickable = true, ...rest }: Props) => {
+  const { theme } = useTheme();
   return (
-    <Li $clickable={clickable} {...rest}>
+    <Li $clickable={clickable} $theme={theme || "light"} {...rest}>
       {children}
     </Li>
   );

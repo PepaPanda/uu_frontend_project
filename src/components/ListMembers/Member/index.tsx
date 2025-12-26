@@ -15,6 +15,10 @@ import styled from "styled-components";
 import { toast } from "react-toastify";
 import { fetchDeleteShoppingListUser } from "../../../helpers/fetchDeleteShoppingListUser";
 
+//Languages
+import { useLanguage } from "../../../context/LanguageContext/useLanguage";
+import { resolveTranslationString } from "../../../helpers/resolveTranslationString";
+
 const Email = styled.span`
   font-size: small;
 `;
@@ -35,6 +39,8 @@ const Member = ({
   owner?: boolean;
   memberId: string;
 }) => {
+  const { language } = useLanguage();
+
   const { shoppingList, setShoppingList } = useShoppingList();
   const { setShoppingListMultiple } = useShoppingListMultiple();
   const { user } = useUser();
@@ -43,27 +49,40 @@ const Member = ({
 
   const handleDelete = async () => {
     if (!shoppingList || !user)
-      return toast("Unexpected error, try reloading the page");
+      return toast(
+        resolveTranslationString(
+          "an unexpected error occured, try reloading the page",
+          language
+        )
+      );
 
     const isOwner = user._id === shoppingList.owner._id;
     const isUserSelfDeleting = user._id === memberId;
     const isOwnerAndSelfDeleting = isOwner && isUserSelfDeleting;
 
     if (isOwnerAndSelfDeleting)
-      return toast("The owner cannot delete themselves");
+      return toast(
+        resolveTranslationString("the owner cannot delete themselves", language)
+      );
 
     if (!isOwner && !isUserSelfDeleting)
-      return toast("Only owner can manage members");
+      return toast(
+        resolveTranslationString("only owner can manage members", language)
+      );
 
     const deleted = await fetchDeleteShoppingListUser(
       shoppingList._id,
       memberId
     );
 
-    if (!deleted) return toast("Unexpected error");
+    if (!deleted)
+      return toast(resolveTranslationString("unexpected error", language));
 
     if (!deleted.ok)
-      return toast(deleted?.details?.details || "Unexpected error");
+      return toast(
+        deleted?.details?.details ||
+          resolveTranslationString("unexpected error", language)
+      );
 
     setShoppingList((list) => {
       if (!list) return null;
@@ -78,7 +97,7 @@ const Member = ({
       navigate("/");
     }
 
-    toast("Member deleted");
+    toast(resolveTranslationString("member removed", language));
   };
 
   return (
@@ -90,7 +109,11 @@ const Member = ({
           <Email>{email}</Email>
         </Box>
       </Box>
-      {owner ? <Tag>Owner</Tag> : <DeleteButton onClick={handleDelete} />}
+      {owner ? (
+        <Tag>{resolveTranslationString("owner", language)}</Tag>
+      ) : (
+        <DeleteButton onClick={handleDelete} />
+      )}
     </UnorderedListOfRows.Item>
   );
 };

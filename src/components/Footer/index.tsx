@@ -8,6 +8,12 @@ const FooterEl = styled.footer`
   min-height: 80px;
   border: 2px solid black;
   margin-top: auto;
+
+  @media (max-width: 841px) {
+    flex-direction: column;
+    padding: 20px 20px;
+    gap: 10px;
+  }
 `;
 
 const Footer = ({ children }: { children: React.ReactNode }) => {

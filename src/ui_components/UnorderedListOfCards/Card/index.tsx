@@ -1,9 +1,12 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router";
 
+import { useTheme } from "../../../context/ThemeContext/useTheme";
+
 export const Li = styled.li<{
   $border?: boolean;
   $color?: string;
+  $theme: string;
 }>`
   position: relative;
   display: flex;
@@ -15,7 +18,8 @@ export const Li = styled.li<{
   border: ${({ $border }) => ($border ? "1px solid grey" : "none")};
   color: ${({ $color }) => $color};
   &:hover {
-    background: #f7f7f7;
+    background: ${({ $theme }) =>
+      $theme === "light" ? "#ffffffff" : "#2d2d2d;"};
   }
 `;
 
@@ -41,6 +45,8 @@ const Card = ({
   highlight?: boolean;
   children: React.ReactNode;
 }) => {
+  const { theme } = useTheme();
+
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -50,7 +56,12 @@ const Card = ({
 
   return (
     <>
-      <Li $border={border} $color={color} onClick={handleClick}>
+      <Li
+        $border={border}
+        $color={color}
+        onClick={handleClick}
+        $theme={theme || "light"}
+      >
         {highlight && <Highlight />}
         {children}
       </Li>

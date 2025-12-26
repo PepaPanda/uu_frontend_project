@@ -12,7 +12,13 @@ import InviteMember from "../../../components/InviteMember";
 import Gap from "../../../ui_components/Gap";
 import ListMembers from "../../../components/ListMembers";
 
+//Languages
+import { useLanguage } from "../../../context/LanguageContext/useLanguage";
+import { resolveTranslationString } from "../../../helpers/resolveTranslationString";
+
 const Members = () => {
+  const { language } = useLanguage();
+
   const { id } = useParams();
   const { shoppingList, setShoppingList } = useShoppingList();
 
@@ -21,7 +27,10 @@ const Members = () => {
     if (!shoppingList) {
       (async () => {
         const shoppingList = await fetchShoppingList(id);
-        if (!shoppingList) return toast("Failed to get shopping list");
+        if (!shoppingList)
+          return toast(
+            resolveTranslationString("failed to fetch shopping list", language)
+          );
         setShoppingList(shoppingList);
       })();
     }
@@ -63,8 +72,10 @@ const Members = () => {
     <>
       <h1>
         {shoppingList
-          ? `Manage members for: ${shoppingList.name}`
-          : "Failed to fetch shopping list"}
+          ? `${resolveTranslationString("manage members for", language)}: ${
+              shoppingList.name
+            }`
+          : resolveTranslationString("failed to fetch shopping list", language)}
       </h1>
       <Gap />
       <InviteMember />

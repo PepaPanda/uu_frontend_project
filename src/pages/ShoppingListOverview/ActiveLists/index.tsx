@@ -28,7 +28,13 @@ import { useUser } from "../../../context/UserContext/useUser";
 import { useNavigate } from "react-router";
 import type { ShoppingList } from "../../../types/ShoppingList";
 
+//Language
+import { useLanguage } from "../../../context/LanguageContext/useLanguage";
+import { resolveTranslationString } from "../../../helpers/resolveTranslationString";
+
 const ActiveLists = () => {
+  const { language } = useLanguage();
+
   const isMobile = useMediaQuery({ query: "(max-width:817px)" });
   const navigate = useNavigate();
 
@@ -48,7 +54,10 @@ const ActiveLists = () => {
 
     (async () => {
       const list = await fetchShoppingListMultiple(user._id);
-      if (!list) return toast("failed to get shopping list");
+      if (!list)
+        return toast(
+          resolveTranslationString("failed to get shopping list", language)
+        );
       setShoppingListMultiple(list);
     })();
   }, [user, setShoppingListMultiple, shoppingListMultiple]);
@@ -78,13 +87,26 @@ const ActiveLists = () => {
   const handleCreateNewList = async () => {
     //Fetch here +  redirect after
 
-    if (newShoppingListName.length < 1) return toast("Cannot add empty name");
+    if (newShoppingListName.length < 1)
+      return toast(resolveTranslationString("cannot add empty name", language));
     //All of this below will be removed after actually implementing API...
-    if (!user) return toast("An error occured, try logging out and in.");
+    if (!user)
+      return toast(
+        resolveTranslationString(
+          "an error occured, try logging out and in",
+          language
+        )
+      );
 
     const id = await fetchCreateShoppingList(newShoppingListName);
 
-    if (!id) return toast("An error occured while trying to create a new list");
+    if (!id)
+      return toast(
+        resolveTranslationString(
+          "an error occured while trying to create a new list",
+          language
+        )
+      );
 
     const owner = {
       _id: user._id,
@@ -136,7 +158,8 @@ const ActiveLists = () => {
             {shoppingList.name}
           </ShoppingListCardContent.Name>
           <ShoppingListCardContent.Owner>
-            Owned by {shoppingList.owner.name}
+            {resolveTranslationString("owned by", language)}{" "}
+            {shoppingList.owner.name}
           </ShoppingListCardContent.Owner>
           <ShoppingListCardContent.Items>
             <ShoppingListCardContent.Items.Open>
@@ -165,7 +188,10 @@ const ActiveLists = () => {
         direction={isMobile ? "column" : "row"}
       >
         <TextInput
-          placeholder="Search by name..."
+          placeholder={`${resolveTranslationString(
+            "search by name",
+            language
+          )}...`}
           value={searchString}
           onChange={(e) => {
             setSearchString(e.target.value);
@@ -173,20 +199,31 @@ const ActiveLists = () => {
         />
         <Box gap="10px" justify={isMobile ? "space-between" : "normal"}>
           <Select onChange={handleChangeSort}>
-            <Select.Option value="name">Sort by: name</Select.Option>
-            <Select.Option value="owner">Sort by: owner</Select.Option>
+            <Select.Option value="name">
+              {resolveTranslationString("sort by", language)}:{" "}
+              {resolveTranslationString("name", language)}
+            </Select.Option>
+            <Select.Option value="owner">
+              {resolveTranslationString("sort by", language)}:{" "}
+              {resolveTranslationString("owner", language)}
+            </Select.Option>
           </Select>
           <Button styleType="dark" onClick={handleAddButtonClick}>
-            + Create new list
+            + {resolveTranslationString("create new list", language)}
           </Button>
           <ModalWindow isOpen={isModalOpen} onRequestClose={closeModal}>
             <Box gap="10px">
               <TextInput
-                placeholder="Name of your shopping list"
+                placeholder={resolveTranslationString(
+                  "name of your shopping list",
+                  language
+                )}
                 value={newShoppingListName}
                 onChange={handleChangeShoppingListName}
               />
-              <Button onClick={handleCreateNewList}>Create</Button>
+              <Button onClick={handleCreateNewList}>
+                {resolveTranslationString("create", language)}
+              </Button>
             </Box>
           </ModalWindow>
         </Box>

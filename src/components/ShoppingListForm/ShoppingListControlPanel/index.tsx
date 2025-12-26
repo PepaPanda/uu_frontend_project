@@ -11,7 +11,13 @@ import { toast } from "react-toastify";
 
 import { useSearchParams } from "react-router";
 
+//Language
+import { useLanguage } from "../../../context/LanguageContext/useLanguage";
+import { resolveTranslationString } from "../../../helpers/resolveTranslationString";
+
 const ShoppingListControlPanel = () => {
+  const { language } = useLanguage();
+
   const isMobile = useMediaQuery({ query: "(max-width: 817px)" });
 
   const [searchParams, setSearchParams] = useSearchParams();
@@ -46,18 +52,35 @@ const ShoppingListControlPanel = () => {
 
   const handleAddButtonClick = async () => {
     if (!shoppingList)
-      return toast("An unexpected error occured, try reloading the page");
+      return toast(
+        resolveTranslationString(
+          "an unexpected error occured, try reloading the page",
+          language
+        )
+      );
 
     if (newGroceryName.length < 1)
-      return toast("you cannot add an empty value :)");
+      return toast(
+        resolveTranslationString("you cannot add an empty value", language)
+      );
 
     if (shoppingList.status === "archived")
-      return toast("This list is archived, you cannot add new items.");
+      return toast(
+        resolveTranslationString(
+          "this list is archived, you cannot add new items",
+          language
+        )
+      );
 
     const id = await fetchCreateListItem(newGroceryName, shoppingList._id);
 
     if (!id)
-      return toast("An unexpected error occured, try reloading the page");
+      return toast(
+        resolveTranslationString(
+          "an unexpected error occured, try reloading the page",
+          language
+        )
+      );
 
     //Try to fetch when api is done here, temporary solution only for local use below
     setShoppingList((list) => {
@@ -82,19 +105,26 @@ const ShoppingListControlPanel = () => {
     >
       <Box gap="10px">
         <TextInput
-          placeholder="name of the item..."
+          placeholder={`${resolveTranslationString(
+            "name of the item",
+            language
+          )}...`}
           value={newGroceryName}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             setNewGroceryName(e.target.value);
           }}
         />
-        <Button onClick={handleAddButtonClick}>Add +</Button>
+        <Button onClick={handleAddButtonClick}>
+          {resolveTranslationString("add", language)} +
+        </Button>
       </Box>
       <Button
         onClick={handleToggleButtonClick}
-        styleType={showResolvedParam ? "dark" : "light"}
+        styleType={showResolvedParam === "0" ? "dark" : "light"}
       >
-        {showResolvedParam ? "Hide resolved" : "Show resolved"}
+        {showResolvedParam === "1"
+          ? resolveTranslationString("hide resolved", language)
+          : resolveTranslationString("show resolved", language)}
       </Button>
     </Box>
   );

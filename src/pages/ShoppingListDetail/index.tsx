@@ -22,7 +22,13 @@ import ShoppingListForm from "../../components/ShoppingListForm";
 export { default as Members } from "./Members";
 export { default as Settings } from "./Settings";
 
+//Language
+import { useLanguage } from "../../context/LanguageContext/useLanguage";
+import { resolveTranslationString } from "../../helpers/resolveTranslationString";
+
 const ShoppingListDetail = () => {
+  const { language } = useLanguage();
+
   const isMobile = useMediaQuery({ query: "(max-width: 817px)" });
 
   const { id } = useParams();
@@ -34,7 +40,10 @@ const ShoppingListDetail = () => {
 
     (async () => {
       const list = await fetchShoppingList(id);
-      if (!list) return toast("failed to get shopping list");
+      if (!list)
+        return toast(
+          resolveTranslationString("failed to get shopping list", language)
+        );
       setShoppingList(list);
     })();
   }, [id, setShoppingList, shoppingList]);
@@ -54,10 +63,14 @@ const ShoppingListDetail = () => {
               {shoppingList?.owner.name}
             </ShoppingListInfo.AdditionalInfo.Owner>
             <ShoppingListInfo.AdditionalInfo.Members>
-              {shoppingList?.members.length} active members
+              {shoppingList?.members.length}{" "}
+              {resolveTranslationString("active members", language)}
             </ShoppingListInfo.AdditionalInfo.Members>
             <ShoppingListInfo.AdditionalInfo.Status>
-              {shoppingList?.status}
+              {resolveTranslationString(
+                shoppingList?.status || "---",
+                language
+              )}
             </ShoppingListInfo.AdditionalInfo.Status>
           </ShoppingListInfo.AdditionalInfo>
         </ShoppingListInfo>

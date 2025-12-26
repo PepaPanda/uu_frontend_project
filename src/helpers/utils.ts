@@ -33,3 +33,8 @@ export const sortShoppingLists = (
     });
   }
 };
+
+export const truncate = (text: string, max: number = 10) => {
+  if (typeof text !== "string") return "";
+  return text.length > max ? text.slice(0, max) + "..." : text;
+};
